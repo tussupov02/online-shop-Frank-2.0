@@ -1,0 +1,108 @@
+.catalog{
+    width: 100%;
+    padding: 60px 7%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.catalog h3{
+    font-size: 40px;
+    font-weight: 300;
+    color: #112038;
+}
+.catalog_all{
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.catalog_box{
+    position:inherit;
+    padding-top: 40px;
+    display: flex;
+    gap: 20px;
+    columns: 1;
+}
+.catalog_main{
+    min-width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.catalog_main .img{
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+}
+.catalog_main img{
+    width: 80%;
+    padding-bottom: 10px;
+}
+.catalog_content h5{
+    font-size: 20px;
+    font-weight: 300; 
+    color: white;  
+}
+/* .catalog_main:hover{
+    border: 1px solid #3984be;
+    box-shadow: 0 0 9px rgba(57,132,190,0.5);
+} */
+@media (max-width:1260px) {
+    .catalog{
+        width: 100%;
+        padding: 60px 5%;
+    }
+}
+@media (max-width:1100px) {
+    .catalog{
+        width: 100%;
+        padding: 20px 5%;
+    }
+    .catalog h3{
+        font-size: 40px;
+        font-weight: 300;
+    }
+    .catalog_all{
+        width: 100%;
+    }
+    .catalog_box{
+        padding-top: 20px;
+        gap: 20px;
+        columns: 1;
+    }
+    .catalog_main{
+        min-width: 280px;
+        padding: 20px;
+        /* grid-template-rows: 280px 50px; */
+        gap: 20px;
+        border-radius: 8px;
+    }
+    .catalog_main .img{
+        width: 100% ;
+    }
+    .catalog_main img{
+        width: 80%;
+        padding-bottom: 10px;
+    }
+    .catalog_content h5{
+        font-size: 20px;
+        font-weight: 300; 
+    }
+}
+@media (max-width:600px) {
+    .catalog h3{
+        font-size: 26px;
+    }
+    .catalog_main{
+        min-width: 44%;
+        height: 250px;
+    }
+}
+@media (max-width:483px) {
+    .catalog_main{
+        min-width: 190px;
+    }
+}
