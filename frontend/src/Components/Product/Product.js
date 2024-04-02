@@ -3,8 +3,8 @@ import "./Product.css";
 import { CgCloseO } from "react-icons/cg";
 import { TfiTruck } from "react-icons/tfi";
 import Footer from "../Footer/Footer";
-
-
+import { MdArrowBackIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 function Product() {
   const product = {
@@ -26,29 +26,66 @@ function Product() {
   const [showImg, setShowImg] = useState(false);
   useEffect(() => {
     return () => {
-      {window.scrollTo({
-        top: 0,
-        left: 0,
-      })}
+      {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+        });
+      }
     };
-  }, [])
+  }, []);
   useEffect(() => {
     return () => {
-      {window.scrollTo({
-        top: 0,
-        left: 0,
-      })}
+      {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+        });
+      }
     };
-  }, [showImg])
+  }, [showImg]);
+
+  const nextImg = () => {
+    if (imgMain) {
+      if (imgMain == product.imageMain) {
+        setImgMain(product.imageOne);
+      } else if (imgMain == product.imageOne) {
+        setImgMain(product.imageTwo);
+      } else if (imgMain == product.imageTwo) {
+        setImgMain(product.imageMain);
+      }
+    } else {
+      setImgMain(product.imageOne);
+    }
+  };
+  const backImg = () => {
+    if (imgMain) {
+      if (imgMain == product.imageMain) {
+        setImgMain(product.imageTwo);
+      } else if (imgMain == product.imageOne) {
+        setImgMain(product.imageMain);
+      } else if (imgMain == product.imageTwo) {
+        setImgMain(product.imageOne);
+      }
+    } else {
+      setImgMain(product.imageTwo);
+    }
+  };
   return (
     <div className="product">
       {showImg ? (
         <span className="showImg">
-          <CgCloseO className="close" onClick={()=>setShowImg(false)}/>
-          <div className="show_img_main" >
-          <img src={imgMain ? imgMain : product.imageMain} alt="" />
-
+          <CgCloseO className="close" onClick={() => setShowImg(false)} />
+          <div className="show_img_main">
+            <div className="arrowsBack">
+              <MdArrowBackIos className="back" onClick={backImg} />
+            </div>
+            <img src={imgMain ? imgMain : product.imageMain} alt="" />
+            <div className="arrowsNext">
+              <MdArrowForwardIos className="next" onClick={nextImg} />
+            </div>
           </div>
+
           <div className="show_img_box">
             <img
               src={product.imageMain}
@@ -136,7 +173,8 @@ function Product() {
             </div>
             <div className="productdisplay__right">
               <div className="productdisplay__right_img">
-                <TfiTruck className="productdisplay__right_icon"/> <p>Доставка</p>
+                <TfiTruck className="productdisplay__right_icon" />{" "}
+                <p>Доставка</p>
               </div>
               <div className="productdisplay__right_content">
                 <p>Доставка по всему Казахстану</p>
@@ -144,9 +182,10 @@ function Product() {
             </div>
           </div>
           <p className="content">
-            Описание: <span style={{ fontWeight: "300" }}>{product.description}</span>
+            Описание:{" "}
+            <span style={{ fontWeight: "300" }}>{product.description}</span>
           </p>
-          <Footer/>
+          <Footer />
         </>
       )}
     </div>
