@@ -9,6 +9,7 @@ import imageReady from "../../Assets/ready.jpg";
 import Catalog from "../Catalog/Catalog";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
+import Footer from "../Footer/Footer";
 
 function Hero() {
   const readyCollection = [
@@ -181,6 +182,7 @@ function Hero() {
           </Map>
         </YMaps>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -5,10 +5,14 @@ import logo from "./Assets/logo.png";
 import Footer from "./Components/Footer/Footer";
 import { BsInstagram } from "react-icons/bs";
 import { HiOutlinePhone } from "react-icons/hi";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Products from "./Components/Products/Products";
+import Product from "./Components/Product/Product";
 
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <div className="main_header">
         <div className="main_header_left">
           <p>
@@ -37,8 +41,12 @@ function App() {
         </div>
       </div>
       <Header />
-      <Hero />
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Hero/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/product" element={<Product/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

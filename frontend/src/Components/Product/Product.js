@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Product.css";
+import { CgCloseO } from "react-icons/cg";
+import { TfiTruck } from "react-icons/tfi";
+import Footer from "../Footer/Footer";
+
+
 
 function Product() {
   const product = {
@@ -18,16 +23,33 @@ function Product() {
       "	Производитель вправе изменять параметры продукции без дополнительного уведомления. Информация о технических характеристиках, комплекте поставки, стране изготовления и внешнем виде товара может отличаться от фактической и основывается на последних доступных к моменту публикации данных.",
   };
   const [imgMain, setImgMain] = useState("");
-  return (
-    <div className="Product">
+  const [showImg, setShowImg] = useState(false);
+  useEffect(() => {
+    return () => {
       {window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth",
       })}
-      <div className="productdisplay">
-        <div className="productdisplay__left">
-          <div className="productdisplay__img__list">
+    };
+  }, [])
+  useEffect(() => {
+    return () => {
+      {window.scrollTo({
+        top: 0,
+        left: 0,
+      })}
+    };
+  }, [showImg])
+  return (
+    <div className="product">
+      {showImg ? (
+        <span className="showImg">
+          <CgCloseO className="close" onClick={()=>setShowImg(false)}/>
+          <div className="show_img_main" >
+          <img src={imgMain ? imgMain : product.imageMain} alt="" />
+
+          </div>
+          <div className="show_img_box">
             <img
               src={product.imageMain}
               onClick={() => setImgMain(product.imageMain)}
@@ -48,41 +70,85 @@ function Product() {
               alt=""
             />
           </div>
-          <div className="productdisplay__img">
-            <img
-              className="productdisplay__main__img"
-              src={imgMain ? imgMain : product.imageMain}
-              alt=""
-            />
-          </div>
-        </div>
+        </span>
+      ) : (
+        <>
+          <h2 className="productdisplay_title">{product.name}</h2>
+          <div className="productdisplay">
+            <div className="productdisplay__left">
+              <div className="productdisplay__img">
+                <img
+                  className="productdisplay__main__img"
+                  src={imgMain ? imgMain : product.imageMain}
+                  alt=""
+                  onClick={() => setShowImg(true)}
+                />
+              </div>
+              <div className="productdisplay__img__list">
+                <img
+                  src={product.imageMain}
+                  onClick={() => setImgMain(product.imageMain)}
+                  alt=""
+                />
+                {product.imageMain === product.imageOne ? (
+                  <></>
+                ) : (
+                  <img
+                    src={product?.imageOne}
+                    onClick={() => setImgMain(product.imageOne)}
+                    alt=""
+                  />
+                )}
+                <img
+                  src={product.imageTwo}
+                  onClick={() => setImgMain(product.imageTwo)}
+                  alt=""
+                />
+              </div>
+            </div>
 
-        <div className="productdisplay__right">
-          <h1>{product.name}</h1>
-          <div className="productdisplay__right__prices">
-            <div className="productdisplay__right__prices__new">
-              {product.new_price} ₸
+            <div className="productdisplay__center">
+              <div className="productdisplay__center__box_one">
+                <div className="productdisplay__center__articul">
+                  Артикул: 39554000
+                </div>
+                <div className="productdisplay__center__prices">
+                  {product.new_price} ₸
+                </div>
+                <button onClick={() => {}}>ДОБАВИТЬ В КОРЗИНУ</button>
+              </div>
+              <div className="productdispaly__center__description">
+                <p>
+                  Тип товара:{" "}
+                  <span style={{ fontWeight: "300" }}>{product.mechanism}</span>
+                </p>
+                <p>
+                  Бренд:{" "}
+                  <span style={{ fontWeight: "300" }}>{product.brand}</span>
+                </p>
+                <p>
+                  Коллекция:{" "}
+                  <span style={{ fontWeight: "300" }}>
+                    {product.collection}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div className="productdisplay__right">
+              <div className="productdisplay__right_img">
+                <TfiTruck className="productdisplay__right_icon"/> <p>Доставка</p>
+              </div>
+              <div className="productdisplay__right_content">
+                <p>Доставка по всему Казахстану</p>
+              </div>
             </div>
           </div>
-          <div className="productdispaly__right__description">
-            <p>
-              Тип товара:{" "}
-              <span style={{ fontWeight: "400" }}>{product.mechanism}</span>
-            </p>
-            <p>
-              Бренд: <span style={{ fontWeight: "400" }}>{product.brand}</span>
-            </p>
-            <p>
-              Коллекция:{" "}
-              <span style={{ fontWeight: "400" }}>{product.collection}</span>
-            </p>
-          </div>
-          <button onClick={() => {}}>ДОБАВИТЬ В КОРЗИНУ</button>
-        </div>
-      </div>
-      <p className="content">
-        Описание: <span>{product.description}</span>
-      </p>
+          <p className="content">
+            Описание: <span style={{ fontWeight: "300" }}>{product.description}</span>
+          </p>
+          <Footer/>
+        </>
+      )}
     </div>
   );
 }

@@ -84,7 +84,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 7% 10px 7%;
+    padding: 0px 7%;
 }
 .header_catalog{
     width: 200px;
@@ -173,7 +173,7 @@ body{
     width: 180px;
     height: 45px;
     background-color: #f4f6f9;
-    border-radius: 50px;
+    border-radius: 8px;
     display: flex;
     padding-left: 30px;
     justify-content: start;
@@ -211,6 +211,9 @@ header{
     }
     .main_header_right_a{
         font-size: 16px;
+    }
+    .fixed_header{
+        padding: 0 5%;
     }
 }
 
@@ -348,5 +351,12 @@ header{
     }
     .header_cart p{
         display: none;
+    }
+    @media (max-width:400px) {
+        .main_header_right{
+            width: 100%;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
     }
 }
