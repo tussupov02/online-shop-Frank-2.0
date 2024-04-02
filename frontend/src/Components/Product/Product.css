@@ -234,6 +234,6 @@
         width: 350px;
     }
     .show_img_main img:hover{
-        transform: scale(1);
+        transform: none;
     }
 }
