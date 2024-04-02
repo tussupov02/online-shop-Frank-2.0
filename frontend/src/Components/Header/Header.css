@@ -34,8 +34,13 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.main_header_left img{
+.logo_home{
     width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.main_header_left img{
+    width: 100%;
     margin-top: -15px;
 }
 
@@ -196,8 +201,10 @@ header{
         padding: 0 5%;
         font-size: 14px;
     }
-    .main_header_left img{
+    .logo_home{
         width: 30%;
+    }
+    .main_header_left img{
         margin-top: 2px;
     }
     .main_header_left p{
@@ -238,11 +245,11 @@ header{
         "logo logo"
         "number inst"; */
     }
-    .main_header_left img{
+    .logo_home{
         width: 200px;
         margin-top: -8px;
         grid-column-start: 1;
-        grid-column-end: 4;
+        grid-column-end: 3;
         grid-row-start: 1;
     }
     .main_header_left p{

@@ -24,26 +24,26 @@ function Product() {
   };
   const [imgMain, setImgMain] = useState("");
   const [showImg, setShowImg] = useState(false);
-  useEffect(() => {
-    return () => {
-      {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-        });
-      }
-    };
-  }, []);
-  useEffect(() => {
-    return () => {
-      {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-        });
-      }
-    };
-  }, [showImg]);
+  // useEffect(() => {
+  //   return () => {
+  //     {
+  //       window.scrollTo({
+  //         top: 0,
+  //         left: 0,
+  //       });
+  //     }
+  //   };
+  // }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     {
+  //       window.scrollTo({
+  //         top: 0,
+  //         left: 0,
+  //       });
+  //     }
+  //   };
+  // }, [showImg]);
 
   const nextImg = () => {
     if (imgMain) {

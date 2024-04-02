@@ -5,14 +5,16 @@ import logo from "./Assets/logo.png";
 import Footer from "./Components/Footer/Footer";
 import { BsInstagram } from "react-icons/bs";
 import { HiOutlinePhone } from "react-icons/hi";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
 import Products from "./Components/Products/Products";
 import Product from "./Components/Product/Product";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <ScrollToTop/>
       <div className="main_header">
         <div className="main_header_left">
           <p>
@@ -26,7 +28,8 @@ function App() {
             <BsInstagram style={{ fontSize: "32px" }} id="inst"/>
             frank.elite
           </a>
-          <img src={logo} alt="" />
+          <Link className="logo_home" to='/'>
+          <img src={logo} alt="" /></Link>
         </div>
         <div className="main_header_right">
           <a className="main_header_right_a" href="#">
