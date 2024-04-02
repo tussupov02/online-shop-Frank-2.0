@@ -9,7 +9,6 @@ import imageReady from "../../Assets/ready.jpg";
 import Catalog from "../Catalog/Catalog";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
-// import imageKitchen from "kitchen.jpg"
 
 function Hero() {
   const readyCollection = [
@@ -51,19 +50,19 @@ function Hero() {
   ];
   const catalogAll = [
     {
-      imageC: "http://localhost:4000/images/product_1712040257576.jpg",
+      imageC: "https://scontent.cdninstagram.com/v/t39.30808-6/411363771_18152612440306255_4792339612543452790_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=OE9grt0otyoAX-W9ipk&edm=APs17CUAAAAA&ccb=7-5&oh=00_AfAL12RggWOsq_SxOYlNW98nDC4a5rAIMTUIdoOMgmbeWQ&oe=66119614&_nc_sid=10d13b",
       title: "Кухня",
     },
     {
-      imageC: "https://shop.grohe.kz/media/wysiwyg/bathroom.jpg",
+      imageC: "https://avatars.dzeninfra.ru/get-zen_doc/9686475/pub_6484c34a5208a65c04c5db73_6484c3c81dfacb4481cea7b4/scale_1200",
       title: "Ванная",
     },
     {
-      imageC: "https://shop.grohe.kz/media/wysiwyg/tualet.jpg",
+      imageC: "https://i.pinimg.com/736x/02/f7/e8/02f7e8291b7392cdda190821fe9d8b10.jpg",
       title: "Туалет",
     },
     {
-      imageC: "https://shop.grohe.kz/media/wysiwyg/dush.jpg",
+      imageC: "https://i.pinimg.com/736x/50/9e/2b/509e2bbd61e48cef8acdf14eb7ed9083.jpg",
       title: "Душевая",
     },
     {
