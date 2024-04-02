@@ -51,7 +51,7 @@ function Hero() {
   ];
   const catalogAll = [
     {
-      imageC: "https://shop.grohe.kz/media/wysiwyg/kitchen.jpg",
+      imageC: "http://localhost:4000/images/product_1712040257576.jpg",
       title: "Кухня",
     },
     {
