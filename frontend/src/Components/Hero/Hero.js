@@ -116,6 +116,7 @@ function Hero() {
             muted
             preload="auto"
             loop="loop"
+            playsInline
             src={require("../../Assets/franc3.MOV")}
             type="video.webm"
           ></video>
