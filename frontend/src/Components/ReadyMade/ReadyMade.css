@@ -159,7 +159,7 @@
     }
     .ready-made_kits_catalog{
         min-width: 44%;
-        grid-template-rows: 200px 100px;
+        grid-template-rows: 230px 100px;
         gap: 20px;
         background-color: white;
         cursor: pointer;
