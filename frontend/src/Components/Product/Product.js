@@ -51,6 +51,13 @@ function Product() {
       setImgMain(product.imageTwo);
     }
   };
+  useEffect(() => {
+    if (showImg) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [showImg]);
   return (
     <div className="product">
       {showImg ? (
@@ -165,7 +172,6 @@ function Product() {
             Описание:{" "}
             <span style={{ fontWeight: "300" }}>{product.description}</span>
           </p>
-          <Footer />
         </>
       )}
     </div>

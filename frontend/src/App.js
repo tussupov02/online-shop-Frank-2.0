@@ -50,6 +50,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product" element={<Product />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

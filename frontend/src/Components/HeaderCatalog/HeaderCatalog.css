@@ -26,6 +26,7 @@
 }
 .showCatalog_box{
     width: 180px;
+    
 }
 .link_main{
     text-decoration: none;
@@ -40,7 +41,6 @@
     position: absolute;
     top: 0;
     left: 400px;
-
 }
 .showCatalog_content ul{
     width: 600px;

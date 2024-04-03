@@ -1,7 +1,11 @@
+.modal_close{
+  overflow: hidden;
+}
 .showImg_main {
     width: 100%;
     padding: 20px 7%;
     height: auto;
+    
   }
   
   div.gallery {

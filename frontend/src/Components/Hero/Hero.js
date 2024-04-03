@@ -184,7 +184,6 @@ function Hero() {
           </Map>
         </YMaps>
       </div>
-      <Footer />
     </div>
   );
 }
