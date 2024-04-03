@@ -24,6 +24,8 @@ function Product() {
   };
   const [imgMain, setImgMain] = useState("");
   const [showImg, setShowImg] = useState(false);
+  const myRef = React.createRef()
+
 
   const nextImg = () => {
     if (imgMain) {
@@ -53,6 +55,7 @@ function Product() {
   };
   useEffect(() => {
     if (showImg) {
+      window.scrollTo(0, myRef.current.scrollHeight)
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -61,7 +64,7 @@ function Product() {
   return (
     <div className="product">
       {showImg ? (
-        <span className="showImg">
+        <span ref={myRef} className="showImg">
           <CgCloseO className="close" onClick={() => setShowImg(false)} />
           <div className="show_img_main">
             <div className="arrowsBack">
