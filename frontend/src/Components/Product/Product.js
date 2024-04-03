@@ -24,8 +24,7 @@ function Product() {
   };
   const [imgMain, setImgMain] = useState("");
   const [showImg, setShowImg] = useState(false);
-  const myRef = React.createRef()
-
+  const myRef = React.createRef();
 
   const nextImg = () => {
     if (imgMain) {
@@ -55,7 +54,7 @@ function Product() {
   };
   useEffect(() => {
     if (showImg) {
-      window.scrollTo(0, myRef.current.scrollHeight)
+      window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";

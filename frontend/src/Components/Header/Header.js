@@ -7,7 +7,6 @@ function Header() {
   const myRef = React.createRef()
   // const scrollToMyRef = () => {window.myRef.scrollTo(0, 0)}
   useEffect(() => {
-    console.log(myRef.current.getBoundingClientRect().top);
     if (catalog) {
       if(myRef.current.getBoundingClientRect().top===0){
         document.body.style.overflow = "hidden";
