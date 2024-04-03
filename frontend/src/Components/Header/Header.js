@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import HeaderCatalog from "../HeaderCatalog/HeaderCatalog";
 import "./Header.css";
 
 function Header() {
@@ -53,18 +54,7 @@ function Header() {
       {catalog ? (
         <div className="showCatalog">
           <div className="showCatalog_box">
-            <ul>
-              <li>
-                <a href="#">Ванны</a>
-                <a href="#">Смесители</a>
-                <a href="#">Унитазы</a>
-                <a href="#">Душевые</a>
-                <a href="#">Инсталяции</a>
-                <a href="#">Мойка для кухни</a>
-                <a href="#">Мебель для ванных комнат</a>
-                <a href="#">Аксессуары</a>
-              </li>
-            </ul>
+            <HeaderCatalog/>
           </div>
         </div>
       ) : (

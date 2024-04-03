@@ -51,19 +51,23 @@ function Hero() {
   ];
   const catalogAll = [
     {
-      imageC: "https://scontent.cdninstagram.com/v/t39.30808-6/411363771_18152612440306255_4792339612543452790_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=OE9grt0otyoAX-W9ipk&edm=APs17CUAAAAA&ccb=7-5&oh=00_AfAL12RggWOsq_SxOYlNW98nDC4a5rAIMTUIdoOMgmbeWQ&oe=66119614&_nc_sid=10d13b",
+      imageC:
+        "https://scontent.cdninstagram.com/v/t39.30808-6/411363771_18152612440306255_4792339612543452790_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=OE9grt0otyoAX-W9ipk&edm=APs17CUAAAAA&ccb=7-5&oh=00_AfAL12RggWOsq_SxOYlNW98nDC4a5rAIMTUIdoOMgmbeWQ&oe=66119614&_nc_sid=10d13b",
       title: "Кухня",
     },
     {
-      imageC: "https://avatars.dzeninfra.ru/get-zen_doc/9686475/pub_6484c34a5208a65c04c5db73_6484c3c81dfacb4481cea7b4/scale_1200",
+      imageC:
+        "https://avatars.dzeninfra.ru/get-zen_doc/9686475/pub_6484c34a5208a65c04c5db73_6484c3c81dfacb4481cea7b4/scale_1200",
       title: "Ванная",
     },
     {
-      imageC: "https://i.pinimg.com/736x/02/f7/e8/02f7e8291b7392cdda190821fe9d8b10.jpg",
+      imageC:
+        "https://i.pinimg.com/736x/02/f7/e8/02f7e8291b7392cdda190821fe9d8b10.jpg",
       title: "Туалет",
     },
     {
-      imageC: "https://i.pinimg.com/736x/50/9e/2b/509e2bbd61e48cef8acdf14eb7ed9083.jpg",
+      imageC:
+        "https://i.pinimg.com/736x/50/9e/2b/509e2bbd61e48cef8acdf14eb7ed9083.jpg",
       title: "Душевая",
     },
     {
@@ -96,9 +100,7 @@ function Hero() {
             <div className="box_icons">
               <TbTruckReturn style={{ fontSize: "60px" }} />
             </div>
-            <h5>
-              Возврат товара
-            </h5>
+            <h5>Возврат товара</h5>
           </div>
           <div className="box">
             <div className="box_icons">
@@ -158,10 +160,10 @@ function Hero() {
           <div className="map_why">
             <h3>Почему стоит покупать у нас?</h3>
             <p>
-              Оформляя покупки в нашем магазине вы
-              получаете абсолютную гарантию качества товара и уверенность в его
-              оригинальности. Акции и Скидки, регулярно обновляемые на страницах
-              сайта, позволят вам подобрать сантехнику на любой бюджет.
+              Оформляя покупки в нашем магазине вы получаете абсолютную гарантию
+              качества товара и уверенность в его оригинальности. Акции и
+              Скидки, регулярно обновляемые на страницах сайта, позволят вам
+              подобрать сантехнику на любой бюджет.
             </p>
           </div>
           <div className="map_contact">
