@@ -10,6 +10,7 @@ import Catalog from "../Catalog/Catalog";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
 import Header from "../Header/Header";
+import Brand from "../Brand/Brand";
 
 function Hero() {
   const readyCollection = [
@@ -51,28 +52,66 @@ function Hero() {
   ];
   const catalogAll = [
     {
-      imageC:
-        "https://scontent.cdninstagram.com/v/t39.30808-6/411363771_18152612440306255_4792339612543452790_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=OE9grt0otyoAX-W9ipk&edm=APs17CUAAAAA&ccb=7-5&oh=00_AfAL12RggWOsq_SxOYlNW98nDC4a5rAIMTUIdoOMgmbeWQ&oe=66119614&_nc_sid=10d13b",
-      title: "Кухня",
+      imageC: "./img/bath.jpg",
+      title: "Ванны",
     },
     {
-      imageC:
-        "https://avatars.dzeninfra.ru/get-zen_doc/9686475/pub_6484c34a5208a65c04c5db73_6484c3c81dfacb4481cea7b4/scale_1200",
-      title: "Ванная",
+      imageC: "./img/toilet.jpg",
+      title: "Унитазы и биде",
     },
     {
-      imageC:
-        "https://i.pinimg.com/736x/02/f7/e8/02f7e8291b7392cdda190821fe9d8b10.jpg",
-      title: "Туалет",
+      imageC: "./img/shower.jpg",
+      title: "Душевые кабины",
     },
     {
-      imageC:
-        "https://i.pinimg.com/736x/50/9e/2b/509e2bbd61e48cef8acdf14eb7ed9083.jpg",
-      title: "Душевая",
+      imageC: "./img/IMG_7799.png",
+      title: "Инсталляции",
     },
     {
-      imageC: "https://shop.grohe.kz/media/wysiwyg/nabor.jpg",
-      title: "Набор",
+      imageC: "./img/kitchen.jpg",
+      title: "Мойка для кухни",
+    },
+    {
+      imageC: "./img/IMG_7797.PNG",
+      title: "Мебель для ванных комнат",
+    },
+    {
+      imageC: "./img/IMG_7800.PNG",
+      title: "Раковины",
+    },
+  ];
+  const brandAll = [
+    {
+      id: 1,
+      brandImg: "./img/blanco.PNG",
+    },
+    {
+      id: 2,
+      brandImg: "./img/franke.JPG",
+    },
+    {
+      id: 3,
+      brandImg: "./img/esko.JPG",
+    },
+    {
+      id: 4,
+      brandImg: "./img/grohe.PNG",
+    },
+    {
+      id: 5,
+      brandImg: "./img/infatti.PNG",
+    },
+    {
+      id: 6,
+      brandImg: "./img/lemark.JPG",
+    },
+    {
+      id: 7,
+      brandImg: "./img/paffoni.JPG",
+    },
+    {
+      id: 8,
+      brandImg: "./img/hansgrohe.PNG",
     },
   ];
   return (
@@ -173,6 +212,16 @@ function Hero() {
           </div>
         </div>
         <ShowImg />
+        <div className="brands">
+          <h3>Бренды</h3>
+          <div className="brand_all">
+            <div className="brand_box">
+              {brandAll.map((item, i) => {
+                return <Brand imgBrand={item.brandImg} key={i} />;
+              })}
+            </div>
+          </div>
+        </div>
         <YMaps>
           <div className="map_title">
             <p>Наш шоурум г. Астана, проспект Аль-Фараби, 11</p>
