@@ -12,6 +12,7 @@
 .showCatalog_main_box{
     height: 100%;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .showCatalog_name{

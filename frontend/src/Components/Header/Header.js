@@ -10,15 +10,15 @@ function Header() {
   useEffect(()=>{
     setHeaderTop(myRef.current.getBoundingClientRect().top)
   },[])
-  useEffect(()=>{
-    if(myRef.current.getBoundingClientRect().top<0){
-      headerClass.style.top='0';
-      headerClass.style.position='relative';
-    }else{
-      console.log(headerTop);
-      setHeaderTop(myRef.current.getBoundingClientRect())
-    }
-  },[headerTop])
+  // useEffect(()=>{
+  //   if(myRef.current.getBoundingClientRect().top<0){
+  //     headerClass.style.top='0';
+  //     headerClass.style.position='relative';
+  //   }else{
+  //     console.log(headerTop);
+  //     setHeaderTop(myRef.current.getBoundingClientRect())
+  //   }
+  // },[headerTop])
   // const scrollToMyRef = () => {window.myRef.scrollTo(0, 0)}
   useEffect(() => {
     if (catalog) {
