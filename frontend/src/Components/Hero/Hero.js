@@ -9,7 +9,7 @@ import imageReady from "../../Assets/ready.jpg";
 import Catalog from "../Catalog/Catalog";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
-import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 function Hero() {
   const readyCollection = [
@@ -77,6 +77,7 @@ function Hero() {
   ];
   return (
     <div>
+      <Header />
       <div className="plus">
         <h4>
           Официальный магазин <b>FRANK</b>{" "}

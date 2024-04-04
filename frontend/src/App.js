@@ -44,7 +44,6 @@ function App() {
             </a>
           </div>
         </div>
-        <Header />
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/products" element={<Products />} />

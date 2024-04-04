@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Product.css";
 import { CgCloseO } from "react-icons/cg";
 import { TfiTruck } from "react-icons/tfi";
-import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 
@@ -61,7 +61,9 @@ function Product() {
     }
   }, [showImg]);
   return (
-    <div className="product">
+    <div>
+      <Header/>
+      <div className="product">
       {showImg ? (
         <span ref={myRef} className="showImg">
           <CgCloseO className="close" onClick={() => setShowImg(false)} />
@@ -176,6 +178,7 @@ function Product() {
           </p>
         </>
       )}
+      </div>
     </div>
   );
 }

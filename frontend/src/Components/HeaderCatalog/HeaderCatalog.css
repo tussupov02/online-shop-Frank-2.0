@@ -1,6 +1,6 @@
-.showCatalog{
+.showCatalog_main{
     width: 100%;
-    height: auto;
+    height: 600px;
     padding: 0px 7%;
     background-color:white;
     position: absolute;
@@ -8,6 +8,10 @@
     font-weight: 300;
     display: flex;
     flex-direction: column;
+}
+.showCatalog_main_box{
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .showCatalog_name{
@@ -26,7 +30,7 @@
 }
 .showCatalog_box{
     width: 180px;
-    
+    height: 100%;
 }
 .link_main{
     text-decoration: none;

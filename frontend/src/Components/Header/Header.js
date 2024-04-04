@@ -4,7 +4,21 @@ import "./Header.css";
 
 function Header() {
   const [catalog, setCatalog] = useState(false);
-  const myRef = React.createRef()
+  const [headerTop, setHeaderTop] = useState('')
+  const myRef = React.createRef();
+  const headerClass = document.querySelector('.header')
+  useEffect(()=>{
+    setHeaderTop(myRef.current.getBoundingClientRect().top)
+  },[])
+  useEffect(()=>{
+    if(myRef.current.getBoundingClientRect().top<0){
+      headerClass.style.top='0';
+      headerClass.style.position='relative';
+    }else{
+      console.log(headerTop);
+      setHeaderTop(myRef.current.getBoundingClientRect())
+    }
+  },[headerTop])
   // const scrollToMyRef = () => {window.myRef.scrollTo(0, 0)}
   useEffect(() => {
     if (catalog) {
@@ -66,8 +80,8 @@ function Header() {
         </div>
       </div>
       {catalog ? (
-        <div className="showCatalog">
-          <div className="showCatalog_box">
+        <div className="showCatalog_main">
+          <div className="showCatalog_main_box">
             <HeaderCatalog />
           </div>
         </div>
