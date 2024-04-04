@@ -64,7 +64,7 @@ function Hero() {
       title: "Душевые кабины",
     },
     {
-      imageC: "./img/IMG_7799.png",
+      imageC: "./img/IMG_7799.PNG",
       title: "Инсталляции",
     },
     {
