@@ -4,7 +4,8 @@ import "./Header.css";
 
 function Header() {
   const [catalog, setCatalog] = useState(false);
-  const [headerTop, setHeaderTop] = useState('')
+  const [headerTop, setHeaderTop] = useState('');
+
   const myRef = React.createRef();
   const headerClass = document.querySelector('.header')
   useEffect(()=>{
@@ -25,11 +26,19 @@ function Header() {
       if(myRef.current.getBoundingClientRect().top===0){
         document.body.style.overflow = "hidden";
       }else{
+        setHeaderTop(myRef.current.getBoundingClientRect().top)
         window.scrollTo(0, myRef.current.scrollHeight)
         document.body.style.overflow = "hidden";
       }
     } else {
-      document.body.style.overflow = "";
+      if(headerTop>0){
+        window.scrollTo({headerTop}, myRef.current.scrollHeight);
+        document.body.style.overflow = "";
+        setHeaderTop(0)
+      }else{
+        document.body.style.overflow = "";
+
+      }
     }
   }, [catalog]);
 
