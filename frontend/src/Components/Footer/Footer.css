@@ -1,7 +1,7 @@
 .footer{
     width: 100%;
-    height: 1200px;
+    height: 400px;
     padding: 60px 7%;
-    background-color:white;
+    background: linear-gradient(0deg,rgb(10, 107, 182) 0%, #f4f6f9 100%); 
     color: #112038;
 }

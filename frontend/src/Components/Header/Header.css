@@ -177,7 +177,7 @@ header{
     .main_header_left img{
         margin-top: 2px;
     }
-    .main_header_left p{
+    .main_header_numb{
         width: 150px;
         font-size: 18px;
     }
@@ -222,7 +222,7 @@ header{
         grid-column-end: 3;
         grid-row-start: 1;
     }
-    .main_header_left p{
+    .main_header_numb{
         width: 100%;
         justify-content: start;
         
