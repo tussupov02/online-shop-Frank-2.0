@@ -11,6 +11,8 @@ import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
 import Header from "../Header/Header";
 import Brand from "../Brand/Brand";
+import { HiOutlinePhone } from "react-icons/hi";
+import { BsInstagram } from "react-icons/bs";
 
 function Hero() {
   const readyCollection = [
@@ -155,15 +157,15 @@ function Hero() {
         </div>
       </div>
       <div className="brands">
-          <h3>Бренды</h3>
-          <div className="brand_all">
-            <div className="brand_box">
-              {brandAll.map((item, i) => {
-                return <Brand imgBrand={item.brandImg} key={i} />;
-              })}
-            </div>
+        <h3>Бренды</h3>
+        <div className="brand_all">
+          <div className="brand_box">
+            {brandAll.map((item, i) => {
+              return <Brand imgBrand={item.brandImg} key={i} />;
+            })}
           </div>
         </div>
+      </div>
       <div className="video">
         <div className="video_plus">
           <video
@@ -208,7 +210,21 @@ function Hero() {
           </div>
         </div>
       </div>
-
+      <div className="number_absolut_main">
+        <div className="number_absolut">
+          <a href="tel:+77058806868">
+            <HiOutlinePhone
+              style={{ fontSize: "32px" }}
+              className="number_absolut_img"
+            />
+          </a>
+        </div>
+      </div>
+      <div className="inst_absolut_main">
+          <a href="https://www.instagram.com/frank.elite?igsh=ZnFhMjU4enNreDNx">
+           <img className="inst_absolut_img" src="./img/inst.webp" alt="" />
+          </a>
+      </div>
       <div className="map_box">
         <div className="map_content">
           <div className="map_why">
