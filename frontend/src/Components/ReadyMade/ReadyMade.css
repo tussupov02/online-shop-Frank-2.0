@@ -13,7 +13,25 @@
 .ready-made_all{
     width: 100%;
     overflow-x: scroll;
-    scrollbar-width: none;
+    overflow-y: hidden;
+    /* scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 50%); */
+}
+.ready-made_all::-webkit-scrollbar{
+    height: 15px;
+
+}
+.ready-made_all::-webkit-scrollbar-track{
+    background: rgb(243, 243, 243);
+}
+.ready-made_all::-webkit-scrollbar-thumb{
+    background: rgb(175, 175, 175);
+    border-radius: 8px;
+    border: 1px solid rgb(208, 207, 207);
+    cursor: pointer;
+}
+.ready-made_all::-webkit-scrollbar-thumb:hover{
+    background: rgb(143, 143, 143);
 }
 .ready-made_kits_box{
     position:inherit;

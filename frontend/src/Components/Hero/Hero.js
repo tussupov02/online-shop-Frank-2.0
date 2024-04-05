@@ -113,13 +113,17 @@ function Hero() {
       id: 8,
       brandImg: "./img/hansgrohe.PNG",
     },
+    {
+      id: 9,
+      brandImg: "./img/abber.jpg",
+    },
   ];
   return (
     <div>
       <Header />
       <div className="plus">
         <h4>
-          Официальный магазин <b>FRANK</b>{" "}
+          Официальный салон сантехники <b>FRANK</b>{" "}
         </h4>
         <div className="plus_box">
           <div className="box">
@@ -146,10 +150,20 @@ function Hero() {
             <div className="box_icons">
               <LiaBoxesSolid style={{ fontSize: "60px" }} />
             </div>
-            <h5>Широкий ассотримент сантехники</h5>
+            <h5>Широкий ассотримент сантехники и мебели для ванной комнаты </h5>
           </div>
         </div>
       </div>
+      <div className="brands">
+          <h3>Бренды</h3>
+          <div className="brand_all">
+            <div className="brand_box">
+              {brandAll.map((item, i) => {
+                return <Brand imgBrand={item.brandImg} key={i} />;
+              })}
+            </div>
+          </div>
+        </div>
       <div className="video">
         <div className="video_plus">
           <video
@@ -165,7 +179,7 @@ function Hero() {
         </div>
       </div>
       <div className="ready-made_kits">
-        <h3>Готовые наборы</h3>
+        <h3>ХИТЫ ПРОДАЖ</h3>
         <div className="ready-made_all">
           <div className="ready-made_kits_box">
             {readyCollection.map((item, i) => {
@@ -212,16 +226,6 @@ function Hero() {
           </div>
         </div>
         <ShowImg />
-        <div className="brands">
-          <h3>Бренды</h3>
-          <div className="brand_all">
-            <div className="brand_box">
-              {brandAll.map((item, i) => {
-                return <Brand imgBrand={item.brandImg} key={i} />;
-              })}
-            </div>
-          </div>
-        </div>
         <YMaps>
           <div className="map_title">
             <p>Наш шоурум г. Астана, проспект Аль-Фараби, 11</p>

@@ -44,13 +44,15 @@ body{
     margin-top: -15px;
 }
 
-.main_header_left p{
+.main_header_numb{
     display: flex;
     justify-content: space-between;
     width: 205px;
     align-items: center;
     font-size: 24px;
     font-weight: 300;
+    text-decoration: none;
+    color: #112038;
 }
 
 .main_header_right{
