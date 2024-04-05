@@ -3,6 +3,7 @@
     padding: 60px 7%;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: white;
 }
 .brands h3{
     font-size: 40px;

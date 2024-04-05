@@ -123,6 +123,16 @@ function Hero() {
   return (
     <div>
       <Header />
+      <div className="brands">
+        <h3>Бренды</h3>
+        <div className="brand_all">
+          <div className="brand_box">
+            {brandAll.map((item, i) => {
+              return <Brand imgBrand={item.brandImg} key={i} />;
+            })}
+          </div>
+        </div>
+      </div>
       <div className="plus">
         <h4>
           Официальный салон сантехники <b>FRANK</b>{" "}
@@ -156,16 +166,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="brands">
-        <h3>Бренды</h3>
-        <div className="brand_all">
-          <div className="brand_box">
-            {brandAll.map((item, i) => {
-              return <Brand imgBrand={item.brandImg} key={i} />;
-            })}
-          </div>
-        </div>
-      </div>
+
       <div className="video">
         <div className="video_plus">
           <video
@@ -228,7 +229,6 @@ function Hero() {
       <div className="map_box">
         <div className="map_content">
           <div className="map_why">
-            <h3>Почему стоит покупать у нас?</h3>
             <p>
               Оформляя покупки в нашем магазине вы получаете абсолютную гарантию
               качества товара и уверенность в его оригинальности. Акции и
