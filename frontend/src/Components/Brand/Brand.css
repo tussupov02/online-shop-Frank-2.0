@@ -1,12 +1,18 @@
 .brands{
     width: 100%;
-    padding: 60px 7%;
+    padding: 20px 7% 60px 7%;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: white;
 }
 .brands h3{
     font-size: 40px;
+    font-weight: 300;
+    color: #112038;
+}
+.brands h4{
+    padding-top: 40px;
+    font-size: 36px;
     font-weight: 300;
     color: #112038;
 }
@@ -33,7 +39,7 @@
 }
 .brand_box{
     position:inherit;
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     gap: 20px;
     columns: 1;
@@ -65,6 +71,12 @@
         width: 100%;
         padding: 60px 5%;
     }
+    .brands h4{
+        padding-top: 20px;
+    }
+    .brand_box{
+        padding: 0;
+    }
 }
 @media (max-width:1100px) {
     .brands{
@@ -79,7 +91,6 @@
         width: 100%;
     }
     .brand_box{
-        padding-top: 20px;
         gap: 20px;
         columns: 1;
     }
@@ -98,9 +109,15 @@
         padding-bottom: 10px;
     } */
 }
+@media (max-width:1000px) {
+    
+}
 @media (max-width:600px) {
     .brands h3{
         font-size: 26px;
+    }
+    .brands h4{
+        font-size: 22px;
     }
     .brand_main{
         min-width: 44%;

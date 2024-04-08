@@ -124,7 +124,11 @@ function Hero() {
     <div>
       <Header />
       <div className="brands">
-        <h3>Бренды</h3>
+        <h3>
+          {" "}
+          Официальный салон сантехники <b>FRANK</b>{" "}
+        </h3>
+        <h4>Бренды</h4>
         <div className="brand_all">
           <div className="brand_box">
             {brandAll.map((item, i) => {
@@ -134,9 +138,6 @@ function Hero() {
         </div>
       </div>
       <div className="plus">
-        <h4>
-          Официальный салон сантехники <b>FRANK</b>{" "}
-        </h4>
         <div className="plus_box">
           <div className="box">
             <div className="box_icons">
@@ -222,9 +223,9 @@ function Hero() {
         </div>
       </div>
       <div className="inst_absolut_main">
-          <a href="https://www.instagram.com/frank.elite?igsh=ZnFhMjU4enNreDNx">
-           <img className="inst_absolut_img" src="./img/inst.webp" alt="" />
-          </a>
+        <a href="https://www.instagram.com/frank.elite?igsh=ZnFhMjU4enNreDNx">
+          <img className="inst_absolut_img" src="./img/inst.webp" alt="" />
+        </a>
       </div>
       <div className="map_box">
         <div className="map_content">
