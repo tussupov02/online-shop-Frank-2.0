@@ -13,6 +13,7 @@ import Header from "../Header/Header";
 import Brand from "../Brand/Brand";
 import { HiOutlinePhone } from "react-icons/hi";
 import { BsInstagram } from "react-icons/bs";
+import Products from "../Products/Products";
 
 function Hero() {
   const readyCollection = [
@@ -255,6 +256,7 @@ function Hero() {
           </Map>
         </YMaps>
       </div>
+      <Products/>
     </div>
   );
 }
