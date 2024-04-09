@@ -18,8 +18,8 @@ function Products() {
   //валидация для имени
   const nameMandler = (e) => {
     setName(e.target.value);
-    const re = /^([а-я]{1}[а-яё]{2,23}|[a-z]{1}[a-z]{2,23})$/;
-    if (!re.test(String(e.target.value).toLowerCase())) {
+    // const re = /^([а-я]{1}[а-яё]{2,23}|[a-z]{1}[a-z]{2,23})$/;
+    if (name.length<1) {
       setNameError("Некоректное имя");
     } else {
       setNameError("");

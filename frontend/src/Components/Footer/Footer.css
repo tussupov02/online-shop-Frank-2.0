@@ -64,22 +64,28 @@
 @media (max-width:700px) {
     .footer{
         height: 1000px;
+        justify-content: start;
     }
     .footer_left{
         width: 100%;
         display: flex;
         align-items: center;
-        gap: 20px;
+        flex-wrap:wrap;
+        column-gap: 20px;
+        row-gap: 0px;
         padding-bottom: 20px;
     }
     .footer_left img{
-        width: 20%;
+       min-width: 113px;
     }
     .footer_center{
         width: 100%;
     }
+    .footer_left svg{
+        width: 20px;
+    }
     .footer_left h4{
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 18px;
         color: #112038;
         text-decoration: none;
@@ -88,12 +94,12 @@
     }
     .footer_left_inst{
         font-weight: 300;
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 18px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 130px;
+        width: 90px;
         color: #112038;
         text-decoration: none;
         list-style-type: none;
