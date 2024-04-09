@@ -52,6 +52,10 @@
 }
 @media (max-width:450px) {
     .footer_catalog_box{
-        width: 150px;
+        width: 170px;
+    }
+    .footer_catalog{
+        row-gap: 20px;
+        column-gap: 10px;
     }
 }
