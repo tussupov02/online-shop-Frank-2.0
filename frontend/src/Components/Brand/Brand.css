@@ -1,6 +1,6 @@
 .brands{
     width: 100%;
-    padding: 20px 7% 60px 7%;
+    padding: 60px 7% 60px 7%;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: white;
@@ -11,8 +11,8 @@
     color: #112038;
 }
 .brands h4{
-    padding-top: 40px;
-    font-size: 36px;
+    padding-top: 20px;
+    font-size: 32px;
     font-weight: 300;
     color: #112038;
 }
@@ -23,7 +23,7 @@
 
 }
 .brand_all::-webkit-scrollbar{
-    height: 15px;
+    height: 10px;
 }
 .brand_all::-webkit-scrollbar-track{
     background: rgb(243, 243, 243);
@@ -45,8 +45,8 @@
     columns: 1;
 }
 .brand_main{
-    min-width: 300px;
-    height: 200px;
+    min-width: 200px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@
         columns: 1;
     }
     .brand_main{
-        min-width: 280px;
+        min-width: 200px;
         padding: 20px;
         /* grid-template-rows: 280px 50px; */
         gap: 20px;
@@ -117,15 +117,15 @@
         font-size: 26px;
     }
     .brands h4{
-        font-size: 22px;
+        font-size: 18px;
     }
     .brand_main{
         min-width: 44%;
-        height: 150px;
+        height: 120px;
     }
 }
 @media (max-width:483px) {
     .brand_main{
-        min-width: 190px;
+        min-width: 160px;
     }
 }

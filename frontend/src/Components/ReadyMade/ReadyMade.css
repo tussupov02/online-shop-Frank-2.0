@@ -18,7 +18,7 @@
     scrollbar-color: hsl(0 0% 50%); */
 }
 .ready-made_all::-webkit-scrollbar{
-    height: 15px;
+    height: 10px;
 
 }
 .ready-made_all::-webkit-scrollbar-track{

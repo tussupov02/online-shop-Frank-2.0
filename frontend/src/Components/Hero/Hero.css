@@ -1,4 +1,5 @@
 .video{
+    padding: 60px 7% 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -21,7 +22,7 @@
 }
 .plus{
     width: 100%;
-    padding: 60px 7% 60px 7%;
+    padding: 40px 7% 0px 7%;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: #f4f6f9;
@@ -32,14 +33,13 @@
     color: #112038;
 }
 .plus_box{
-    padding-top: 40px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 .plus_box .box{
-    width: 200px;
-    height: 150px;
+    width: 230px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     color: #314563;
@@ -122,13 +122,14 @@
     .video{
         width: 100%;
         height: 500px;
+        padding: 60px 5% 0;
     }
     .video_content{
         width: 100%;
     }
     .plus{
         width: 100%;
-        padding: 60px 5%;
+        padding: 60px 5% 0;
     }
     .plus h4{
         font-size: 40px;
@@ -192,6 +193,7 @@
     .video{
         width: 100%;
         height: 300px;
+        padding: 40px 5% 0;
     }
     .video_plus{
         margin: -150px;
@@ -213,8 +215,8 @@
         padding: 0;
     }
     .plus_box .box{
-        width: 200px;
-        height: 150px;
+        width: 180px;
+        height: 100px;
     }
     .box h5{
         font-weight: 350;
@@ -262,9 +264,13 @@
     }
 }
 @media (max-width:1000px){
+    .plus{
+        padding: 40px 5% 0;
+    }
     .plus_box{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     .plus_box .box{
         width: 100%;

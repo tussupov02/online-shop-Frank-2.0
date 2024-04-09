@@ -15,7 +15,7 @@
     overflow-y: hidden;
 }
 .catalog_all::-webkit-scrollbar{
-    height: 15px;
+    height: 10px;
 }
 .catalog_all::-webkit-scrollbar-track{
     background: rgb(243, 243, 243);

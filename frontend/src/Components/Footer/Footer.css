@@ -1,7 +1,101 @@
 .footer{
     width: 100%;
-    height: 400px;
+    height: 600px;
     padding: 60px 7%;
     background: linear-gradient(0deg,rgb(10, 107, 182) 0%, #f4f6f9 100%); 
     color: #112038;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.footer_left{
+    width: 20%;
+}
+.footer_left img{
+    width: 100%;
+}
+.footer_left h4{
+    margin-top: 20px;
+    font-size: 24px;
+    color: #112038;
+    text-decoration: none;
+    list-style-type: none;
+    font-weight: 300;
+}
+.footer_left_inst{
+    font-weight: 300;
+    margin-top: 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+    color: #112038;
+    text-decoration: none;
+    list-style-type: none;
+}
+.footer_center{
+    width: 70%;
+}
+@media (max-width:1250px) {
+    .footer{
+        padding: 0 5%;
+    }
+}
+@media (max-width:1000px) {
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer_left{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .footer_left img{
+        width: 20%;
+    }
+    .footer_center{
+        width: 100%;
+    }
+}
+@media (max-width:700px) {
+    .footer{
+        height: 1000px;
+    }
+    .footer_left{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .footer_left img{
+        width: 20%;
+    }
+    .footer_center{
+        width: 100%;
+    }
+    .footer_left h4{
+        margin-top: 20px;
+        font-size: 18px;
+        color: #112038;
+        text-decoration: none;
+        list-style-type: none;
+        font-weight: 300;
+    }
+    .footer_left_inst{
+        font-weight: 300;
+        margin-top: 20px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 130px;
+        color: #112038;
+        text-decoration: none;
+        list-style-type: none;
+    }
 }

@@ -85,6 +85,10 @@ function Hero() {
   ];
   const brandAll = [
     {
+      id: 4,
+      brandImg: "./img/grohe.PNG",
+    },
+    {
       id: 1,
       brandImg: "./img/blanco.PNG",
     },
@@ -95,10 +99,6 @@ function Hero() {
     {
       id: 3,
       brandImg: "./img/esko.JPG",
-    },
-    {
-      id: 4,
-      brandImg: "./img/grohe.PNG",
     },
     {
       id: 5,
@@ -124,6 +124,20 @@ function Hero() {
   return (
     <div>
       <Header />
+      <div className="video">
+        <div className="video_plus">
+          <video
+            className="video_content"
+            autoPlay
+            muted
+            preload="auto"
+            loop="loop"
+            playsInline
+            src={require("../../Assets/franc3.MOV")}
+            type="video.webm"
+          ></video>
+        </div>
+      </div>
       <div className="brands">
         <h3>
           {" "}
@@ -166,21 +180,6 @@ function Hero() {
             </div>
             <h5>Широкий ассотримент сантехники и мебели для ванной комнаты </h5>
           </div>
-        </div>
-      </div>
-
-      <div className="video">
-        <div className="video_plus">
-          <video
-            className="video_content"
-            autoPlay
-            muted
-            preload="auto"
-            loop="loop"
-            playsInline
-            src={require("../../Assets/franc3.MOV")}
-            type="video.webm"
-          ></video>
         </div>
       </div>
       <div className="ready-made_kits">
