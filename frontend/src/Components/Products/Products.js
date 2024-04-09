@@ -108,7 +108,7 @@ function Products() {
           )}
         </label>
             <button disabled={!formValid} type="button" onClick={btn}>
-          send
+          Отправить
         </button>
       </form>
     </div>
