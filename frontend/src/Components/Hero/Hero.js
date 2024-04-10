@@ -156,7 +156,7 @@ function Hero() {
         <div className="plus_box">
           <div className="box">
             <div className="box_icons">
-              <BsBoxSeam style={{ fontSize: "60px" }} />
+              <BsBoxSeam style={{ fontSize: "50px" }} />
             </div>
             <h5>
               Бесплатная доставка по Астане до подъезда. Доставка по Казахстану
@@ -164,19 +164,19 @@ function Hero() {
           </div>
           <div className="box">
             <div className="box_icons">
-              <GrCertificate style={{ fontSize: "60px" }} />
+              <GrCertificate style={{ fontSize: "50px" }} />
             </div>
             <h5>Гарантия качества товара</h5>
           </div>
           <div className="box">
             <div className="box_icons">
-              <TbTruckReturn style={{ fontSize: "60px" }} />
+              <TbTruckReturn style={{ fontSize: "50px" }} />
             </div>
             <h5>Возврат товара</h5>
           </div>
           <div className="box">
             <div className="box_icons">
-              <LiaBoxesSolid style={{ fontSize: "60px" }} />
+              <LiaBoxesSolid style={{ fontSize: "50px" }} />
             </div>
             <h5>Широкий ассотримент сантехники и мебели для ванной комнаты </h5>
           </div>
@@ -245,7 +245,7 @@ function Hero() {
         <ShowImg />
         <YMaps>
           <div className="map_title">
-            <p>Наш шоурум г. Астана, проспект Аль-Фараби, 11</p>
+            <p>Наш салон сантехники г. Астана, проспект Аль-Фараби, 11</p>
           </div>
           <Map
             className="map"

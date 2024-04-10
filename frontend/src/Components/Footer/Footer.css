@@ -13,9 +13,10 @@
 }
 .footer_left img{
     width: 100%;
+    margin-bottom: 20px;
+
 }
 .footer_left_phone{
-    margin-top: 20px;
     font-size: 24px;
     color: #112038;
     text-decoration: none;
@@ -56,6 +57,10 @@
     }
     .footer_left img{
         width: 20%;
+        margin: 0;
+    }
+    .footer_left_phone{
+        margin-top: 20px;
     }
     .footer_center{
         width: 100%;

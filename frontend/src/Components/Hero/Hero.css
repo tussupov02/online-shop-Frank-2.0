@@ -7,11 +7,11 @@
 }
 .video_plus{
     width: 100%;
-    height: 500px;
+    height: 400px;
     overflow: hidden;
 }
 .video_content{
-    margin-top: -100px;
+    margin-top: -150px;
     width: 100%;
     background-color: rgb(52, 52, 52);
     display: flex;
@@ -22,13 +22,13 @@
 }
 .plus{
     width: 100%;
-    padding: 40px 7% 0px 7%;
+    padding: 20px 7% 0px 7%;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: #f4f6f9;
 }
 .plus h4{
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 300;
     color: #112038;
 }
@@ -38,14 +38,14 @@
     justify-content: space-between;
 }
 .plus_box .box{
-    width: 230px;
-    height: 120px;
+    width: 200px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     color: #314563;
 }
 .box h5{
-    font-weight: 350;
+    font-weight: 300;
     font-size: 18px;
     line-height: 120%;
     padding-bottom: 10px;
@@ -56,12 +56,12 @@
     line-height: 150%;
 }
 .plus_box .box_icons{
-    height: 80px;
+    height: 60px;
     padding-bottom: 10px;
 }
 .map{
     width: 100%; 
-    height: 500px; 
+    height: 400px; 
     padding: 0px 7%;
 }
 .map_box{
