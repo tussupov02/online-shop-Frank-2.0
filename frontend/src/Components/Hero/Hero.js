@@ -193,8 +193,38 @@ function Hero() {
             loop={false}
             spaceBetween={10}
             navigation={true}
-            slidesPerView={4}
+            slidesPerView={1}
             grabCursor={true}
+            breakpoints={{
+              1420: {
+                slidesPerView: 5,
+              },
+              1050: {
+                slidesPerView: 4,
+              },
+              820: {
+                slidesPerView: 3.5,
+              },
+              700:{
+                slidesPerView: 3
+              },
+              550:{
+                slidesPerView:2.5
+              },
+              500:{
+                slidesPerView:2
+              },
+              380:{
+                slidesPerView:1.8
+              },
+              360:{
+                slidesPerView:1.5
+              },
+              340:{
+                slidesPerView:1.5
+              }
+
+            }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="ready-made_kits_box"
           >
@@ -220,8 +250,38 @@ function Hero() {
             loop={true}
             spaceBetween={10}
             navigation={true}
-            slidesPerView={4}
+            slidesPerView={1}
             grabCursor={true}
+            breakpoints={{
+              1420: {
+                slidesPerView: 5,
+              },
+              1050: {
+                slidesPerView: 4,
+              },
+              820: {
+                slidesPerView: 3.5,
+              },
+              700:{
+                slidesPerView: 3
+              },
+              550:{
+                slidesPerView:2.5
+              },
+              500:{
+                slidesPerView:2
+              },
+              380:{
+                slidesPerView:1.8
+              },
+              360:{
+                slidesPerView:1.5
+              },
+              340:{
+                slidesPerView:1.5
+              }
+
+            }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="catalog_box"
           >

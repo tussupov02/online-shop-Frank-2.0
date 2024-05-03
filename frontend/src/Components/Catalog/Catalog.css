@@ -20,7 +20,7 @@
     columns: 1;
 }
 .catalog_main{
-    width: 300px;
+    width: 100%;
     height: 400px;
     display: flex;
     align-items: flex-end;
@@ -72,7 +72,7 @@
         columns: 1;
     }
     .catalog_main{
-        min-width: 280px;
+        width: 100%;
         padding: 20px;
         /* grid-template-rows: 280px 50px; */
         gap: 20px;
@@ -95,12 +95,7 @@
         font-size: 26px;
     }
     .catalog_main{
-        min-width: 44%;
-        height: 250px;
-    }
-}
-@media (max-width:483px) {
-    .catalog_main{
-        min-width: 190px;
+        width: 100%;
+        height: 300px;
     }
 }
