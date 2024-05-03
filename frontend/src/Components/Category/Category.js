@@ -19,7 +19,6 @@ function Category() {
   if (!product) {
     return <div>Loader...</div>;
   } else {
-    console.log(product[0])
     return (
       <div>
         <Header check={check} />

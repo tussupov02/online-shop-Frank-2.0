@@ -11,7 +11,6 @@ function Header({ check }) {
   const [searchValue, setSearchValue] = useState("");
   const [num, setNum] = useState(0);
   const { all_product } = useContext(ShopContext);
-  const startSum = JSON.parse(localStorage.getItem("save")||[])
   const myRef = React.useRef(null);
 
   const { pathname } = useLocation();
@@ -21,13 +20,23 @@ function Header({ check }) {
   }, [pathname]);
 
   useEffect(() => {
-      setNum(startSum.length);
+    if (localStorage.getItem("save") !== null) {
+      setNum(JSON.parse(localStorage.getItem("save")).length);
+    } else {
+      setNum(0);
+    }
+    console.log(num);
   }, []);
 
   useEffect(() => {
-    setNum(JSON.parse(localStorage.getItem("save")).length);
+    if (localStorage.getItem("save") !== null) {
+      setNum(JSON.parse(localStorage.getItem("save")).length);
+    } else {
+      setNum(0);
+    }
+    console.log(num);
   }, [check]);
-  
+
   useEffect(() => {
     if (catalog || search) {
       myRef.current.scrollIntoView();
@@ -41,16 +50,16 @@ function Header({ check }) {
     setCatalog(value);
   };
 
-  const swohCatalog= ()=>{
-    setCatalog(true)
-    setTimeout(()=>{
-      if(catalog){
-        swohCatalog()
-      }else{
-        setCatalog(false)
+  const swohCatalog = () => {
+    setCatalog(true);
+    setTimeout(() => {
+      if (catalog) {
+        swohCatalog();
+      } else {
+        setCatalog(false);
       }
-    },2000)
-  }
+    }, 2000);
+  };
 
   const fileterSearch = all_product.filter((product) => {
     return product.name.toLowerCase().includes(searchValue.toLowerCase());

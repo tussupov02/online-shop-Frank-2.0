@@ -4,7 +4,7 @@ function Filter({ product }) {
     const [category, setCategory] = useState([]);
 
     const filter = [
-        
+
     ]
     
 
@@ -20,7 +20,6 @@ function Filter({ product }) {
     },[])
 
     useEffect(()=>{
-        console.log(category);
     },[category])
   return (
     <div>

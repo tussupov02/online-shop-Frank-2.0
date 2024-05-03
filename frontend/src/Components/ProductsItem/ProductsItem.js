@@ -17,11 +17,18 @@ function ProductsItem(props) {
             localStorage.setItem("save", JSON.stringify([...local, props]));
             setCheck(false)
         }
+        console.log("if",local.length);
     },[local])
 
     const save =()=>{
+      if(localStorage.getItem("save")!==null){
         setLocal(JSON.parse(localStorage.getItem("save")))
         setCheck(true)
+
+      }else{
+        setLocal([])
+        setCheck(true)
+      }
     }
   return (
     <div id={props.id} className="products_items">
@@ -36,9 +43,9 @@ function ProductsItem(props) {
       </div>
       <div className="products_item_price">
         <h3>{props.price} ₸</h3>
-        <Link to={`/category/${props.id}`} onClick={save}>
+        <div  onClick={save}>
           <SlBasket style={{ fontSize: "24px", color:'#112038' }} />
-        </Link>
+        </div>
       </div>
     </div>
   );
