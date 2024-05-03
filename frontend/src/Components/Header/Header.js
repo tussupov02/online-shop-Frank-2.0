@@ -21,7 +21,7 @@ function Header({ check }) {
   }, [pathname]);
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem("save"))){
+    if(JSON.parse(localStorage.getItem("save")).length){
       setNum(JSON.parse(localStorage.getItem("save")).length);
     }
   }, []);
