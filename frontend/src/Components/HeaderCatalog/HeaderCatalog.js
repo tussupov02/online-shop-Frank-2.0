@@ -301,18 +301,22 @@ const nodes = [
     category: "1",
     nodes: [
       {
+        category: "Ванны",
         id: "bath_1.1",
         name: "Акриловые",
       },
       {
+        category: "Ванны",
         id: "bath_1.3",
         name: "Отдельностоящие",
       },
       {
+        category: "Ванны",
         id: "bath_1.2",
         name: "Стальные",
       },
       {
+        category: "Ванны",
         id: "bath_1.4",
         name: "Чугунные",
       },

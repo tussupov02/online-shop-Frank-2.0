@@ -9,7 +9,7 @@ function Category() {
   const [check, setCheck] = useState(false);
   const { all_product } = useContext(ShopContext);
   const { categoryId } = useParams();
-  const product = all_product.filter((e) => e.category.id === Number(categoryId));
+  const product = all_product.filter((e) => e.category.id === Number(categoryId)|| e.brand.name === categoryId);
 
 
 

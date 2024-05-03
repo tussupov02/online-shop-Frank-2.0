@@ -66,38 +66,47 @@ function Hero() {
   const brandAll = [
     {
       id: 4,
+      name: "Groge",
       brandImg: "./img/grohe.PNG",
     },
     {
       id: 1,
+      name: "Blanco",
       brandImg: "./img/blanco.PNG",
     },
     {
       id: 2,
+      name: "Franke",
       brandImg: "./img/franke.JPG",
     },
     {
       id: 3,
+      name: "Esko",
       brandImg: "./img/esko.JPG",
     },
     {
       id: 5,
+      name: "Infatti",
       brandImg: "./img/infatti.PNG",
     },
     {
       id: 6,
+      name: "Lemark",
       brandImg: "./img/lemark.JPG",
     },
     {
       id: 7,
+      name: "Paffoni",
       brandImg: "./img/paffoni.JPG",
     },
     {
       id: 8,
+      name: "*Hansgrohe",
       brandImg: "./img/hansgrohe.PNG",
     },
     {
       id: 9,
+      name: "Abber",
       brandImg: "./img/abber.jpg",
     },
   ];
@@ -149,7 +158,7 @@ function Hero() {
             {brandAll.map((item, i) => {
               return (
                 <SwiperSlide key={i}>
-                  <Brand imgBrand={item.brandImg} id={item.id} />
+                  <Brand imgBrand={item.brandImg} id={item.id} title={item.name}/>
                 </SwiperSlide>
               );
             })}
@@ -197,7 +206,7 @@ function Hero() {
             grabCursor={true}
             breakpoints={{
               1420: {
-                slidesPerView: 5,
+                slidesPerView: 4.9,
               },
               1050: {
                 slidesPerView: 4,
@@ -254,7 +263,7 @@ function Hero() {
             grabCursor={true}
             breakpoints={{
               1420: {
-                slidesPerView: 5,
+                slidesPerView: 4.9,
               },
               1050: {
                 slidesPerView: 4,
