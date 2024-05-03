@@ -11,7 +11,7 @@ function Header({ check }) {
   const [searchValue, setSearchValue] = useState("");
   const [num, setNum] = useState(0);
   const { all_product } = useContext(ShopContext);
-  
+  const startSum = JSON.parse(localStorage.getItem("save")||[])
   const myRef = React.useRef(null);
 
   const { pathname } = useLocation();
@@ -21,13 +21,13 @@ function Header({ check }) {
   }, [pathname]);
 
   useEffect(() => {
-      setNum(JSON.parse(localStorage.getItem("save")||[]).length);
+      setNum(startSum.length);
   }, []);
 
   useEffect(() => {
     setNum(JSON.parse(localStorage.getItem("save")).length);
   }, [check]);
-
+  
   useEffect(() => {
     if (catalog || search) {
       myRef.current.scrollIntoView();
