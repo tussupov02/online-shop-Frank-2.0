@@ -229,8 +229,8 @@ class FooterCatalog extends React.Component {
   render() {
     return (
       <div className="footer_catalog">
-        {this.state.data.nodes.map((element) => (
-          <div key={element.id} className="footer_catalog_box">
+        {this.state.data.nodes.map((element, i) => (
+          <div key={i} id={i} className="footer_catalog_box">
             <div className="footer_catalog_name">
               <Link className="link_footer_catalog_name" to="/product">
                 {element.name}
@@ -239,7 +239,7 @@ class FooterCatalog extends React.Component {
               <ul className="footer_catalog_content">
               {element.nodes.map((el) => {
                 return (
-                  <Link className="link_footer_catalog_content" to={`products/${el.id}`} key={el.id}>
+                  <Link className="link_footer_catalog_content" to={`products`} key={el.id}>
                     {" "}
                     {el.name}{" "}
                   </Link>

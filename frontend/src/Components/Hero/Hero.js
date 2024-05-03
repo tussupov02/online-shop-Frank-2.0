@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Hero.css";
 import { BsBoxSeam } from "react-icons/bs";
 import { GrCertificate } from "react-icons/gr";
@@ -13,46 +13,19 @@ import Header from "../Header/Header";
 import Brand from "../Brand/Brand";
 import { HiOutlinePhone } from "react-icons/hi";
 import { BsInstagram } from "react-icons/bs";
-import Products from "../Products/Products";
+import TelegramBot from "../TelegramBot/TelegramBot";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { ShopContext } from "../../Context/ShopContext";
 
 function Hero() {
-  const readyCollection = [
-    {
-      imageR: { imageReady },
-      title: "120440",
-      content:
-        "Набор GROHE Euro compact: подвесной унитаз Euro compact с инста",
-      price: "987654",
-    },
-    {
-      imageR: "../../Assets/ready.jpg",
-      title: "120440",
-      content:
-        "Набор GROHE Euro compact: подвесной унитаз Euro compact с инста",
-      price: "123456",
-    },
-    {
-      imageR: { imageReady },
-      title: "120440",
-      content:
-        "Набор GROHE Euro compact: подвесной унитаз Euro compact с инста",
-      price: "789456",
-    },
-    {
-      imageR: { imageReady },
-      title: "120440",
-      content:
-        "Набор GROHE Euro compact: подвесной унитаз Euro compact с инста",
-      price: "987654",
-    },
-    {
-      imageR: "../../Assets/ready.jpg",
-      title: "120440",
-      content:
-        "Набор GROHE Euro compact: подвесной унитаз Euro compact с инста",
-      price: "123456",
-    },
-  ];
+  const { hitsProducts } = useContext(ShopContext);
   const catalogAll = [
     {
       imageC: "./img/bath.jpg",
@@ -121,6 +94,7 @@ function Hero() {
       brandImg: "./img/abber.jpg",
     },
   ];
+  useEffect(() => {}, []);
   return (
     <div>
       <Header />
@@ -145,11 +119,34 @@ function Hero() {
         </h3>
         <h4>Бренды</h4>
         <div className="brand_all">
-          <div className="brand_box">
+          <Swiper
+            loop={true}
+            spaceBetween={10}
+            navigation={true}
+            slidesPerView={3}
+            grabCursor={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            breakpoints={{
+              1450: {
+                slidesPerView: 6,
+              },
+              1200: {
+                slidesPerView: 5,
+              },
+              1000: {
+                slidesPerView: 4,
+              },
+            }}
+            className="brand_box"
+          >
             {brandAll.map((item, i) => {
-              return <Brand imgBrand={item.brandImg} key={i} />;
+              return (
+                <SwiperSlide>
+                  <Brand imgBrand={item.brandImg} key={i} />
+                </SwiperSlide>
+              );
             })}
-          </div>
+          </Swiper>
         </div>
       </div>
       <div className="plus">
@@ -185,31 +182,51 @@ function Hero() {
       <div className="ready-made_kits">
         <h3>ХИТЫ ПРОДАЖ</h3>
         <div className="ready-made_all">
-          <div className="ready-made_kits_box">
-            {readyCollection.map((item, i) => {
+          <Swiper
+            loop={false}
+            spaceBetween={10}
+            navigation={true}
+            slidesPerView={4}
+            grabCursor={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="ready-made_kits_box"
+          >
+            {hitsProducts.map((item, i) => {
               return (
-                <>
+                <SwiperSlide>
                   <ReadyMade
-                    key={i}
-                    image={require("../../Assets/ready.jpg")}
-                    title={item.title}
-                    content={item.content}
+                    key={item.id}
+                    id={item.id}
+                    image={item.pictures[0].img}
+                    title={item.name}
                     price={item.price}
                   />
-                </>
+                </SwiperSlide>
               );
             })}
-          </div>
+          </Swiper>
         </div>
       </div>
       <div className="catalog">
         <h3>Каталог товаров</h3>
         <div className="catalog_all">
-          <div className="catalog_box">
+          <Swiper
+            loop={true}
+            spaceBetween={10}
+            navigation={true}
+            slidesPerView={4}
+            grabCursor={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="catalog_box"
+          >
             {catalogAll.map((item, i) => {
-              return <Catalog key={i} image={item.imageC} title={item.title} />;
+              return (
+                <SwiperSlide>
+                  <Catalog key={i} image={item.imageC} title={item.title} />
+                </SwiperSlide>
+              );
             })}
-          </div>
+          </Swiper>
         </div>
       </div>
       <div className="number_absolut_main">
@@ -255,7 +272,7 @@ function Hero() {
           </Map>
         </YMaps>
       </div>
-      <Products/>
+      <TelegramBot />
     </div>
   );
 }

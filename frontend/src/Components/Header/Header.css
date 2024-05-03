@@ -87,10 +87,10 @@ body{
 
 .fixed_header{
     width: 100%;
-    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px;
     padding: 0px 7%;
 }
 .header_catalog{
@@ -111,12 +111,15 @@ body{
     border: 1px solid #3984be;
     box-shadow: 0 0 9px rgba(57,132,190,0.5);
 }
+.main_search{
+    width: 60%;
+}
 .search{
     display: flex;
     align-items: center;
     border:2px solid rgba(199, 199, 199, 0.296);
     background-color: #e9eaec3b;
-    width: 60%;
+    width: 100%;
     height: 40px;
     border-radius: 8px;
     padding-left: 15px;
@@ -155,6 +158,7 @@ body{
     cursor: pointer;
     transition: all .5s ease;
     fill: white;
+    text-decoration: none;
 }
 .header_cart:hover{
     border: 1px solid #3984be;
@@ -165,7 +169,40 @@ header{
     position: sticky;
     top: 0;
 }
-
+.basket_num{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3984be;
+    top: 10px;
+    margin-left: 120px;
+}
+.showIsSearch{
+    margin-top: 10px;
+    width: 52%;
+    max-height: 500px;
+    height: auto;
+    background-color: white;
+    list-style: none;
+    text-decoration: none;
+    overflow: auto;
+    position: absolute;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    font-weight: 300;
+}
+.showIsSearch_item{
+    padding: 10px;
+}
+.showIsSearch_item:hover{
+    background: rgb(180, 180, 180);
+    cursor: pointer;
+    transition: cubic-bezier(1, 0, 0, 1) .3s all;
+}
 @media(max-width:1250px){
     .main_header{
         padding: 0 5%;
@@ -259,8 +296,10 @@ header{
     .header_catalog svg{
         width: 12px;
     }
-    .search{
+    .main_search{
         width: 55%;
+    }
+    .search{
         height: 40px;
         border-radius: 8px;
         padding-left: 12px;
@@ -281,6 +320,18 @@ header{
     }
     .header_cart svg{
         width: 12px;
+    }
+    .basket_num{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3984be;
+        top: 0px;
+        margin-left: 100px;
     }
 }
 @media(max-width:750px){
@@ -303,8 +354,10 @@ header{
     .header_catalog svg{
         width: 20px;
     }
-    .search{
+    .main_search{
         width: 70%;
+    }
+    .search{
         height: 40px;
         border-radius: 8px;
         padding-left: 12px;
@@ -329,11 +382,23 @@ header{
     .header_cart p{
         display: none;
     }
-    @media (max-width:400px) {
-        .main_header_right{
-            width: 100%;
-            justify-content: space-between;
-            padding: 10px 0;
-        }
+    .basket_num{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3984be;
+        top: 0px;
+        margin-left: 50px;
+    }
+}
+@media (max-width:400px) {
+    .main_header_right{
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 0;
     }
 }

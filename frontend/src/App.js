@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Products from "./Components/Products/Products";
 import Product from "./Components/Product/Product";
 import ScrollToTop from "./Components/ScrollToTop";
+import Basket from "./Components/Basket/Basket";
+import Category from "./Components/Category/Category";
 
 function App() {
   return (
@@ -47,7 +49,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product" element={<Product />}>
+            <Route path=":productId" element={<Product />} />
+          </Route>
+          <Route path="category" element={<Category/>}>
+            <Route path=":categoryId" element={<Category/>}/>
+          </Route>
+          <Route path="/basket" element={<Basket />} />
         </Routes>
         <Footer />
       </BrowserRouter>
