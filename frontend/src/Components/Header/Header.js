@@ -11,7 +11,7 @@ function Header({ check }) {
   const [searchValue, setSearchValue] = useState("");
   const [num, setNum] = useState(0);
   const { all_product } = useContext(ShopContext);
-
+  
   const myRef = React.useRef(null);
 
   const { pathname } = useLocation();
@@ -21,9 +21,7 @@ function Header({ check }) {
   }, [pathname]);
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem("save")).length){
-      setNum(JSON.parse(localStorage.getItem("save")).length);
-    }
+      setNum(JSON.parse(localStorage.getItem("save")||[]).length);
   }, []);
 
   useEffect(() => {
