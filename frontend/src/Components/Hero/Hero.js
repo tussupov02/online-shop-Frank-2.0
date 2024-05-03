@@ -28,30 +28,37 @@ function Hero() {
   const { hitsProducts } = useContext(ShopContext);
   const catalogAll = [
     {
+      id: 123564,
       imageC: "./img/bath.jpg",
       title: "Ванны",
     },
     {
+      id: 1564,
       imageC: "./img/toilet.jpg",
       title: "Унитазы и биде",
     },
     {
+      id: 453564,
       imageC: "./img/shower.jpg",
       title: "Душевые кабины",
     },
     {
+      id: 14,
       imageC: "./img/IMG_7799.PNG",
       title: "Инсталляции",
     },
     {
+      id: 774,
       imageC: "./img/kitchen.jpg",
       title: "Мойка для кухни",
     },
     {
+      id: 1544,
       imageC: "./img/IMG_7797.PNG",
       title: "Мебель для ванных комнат",
     },
     {
+      id: 19875,
       imageC: "./img/IMG_7800.PNG",
       title: "Раковины",
     },
@@ -141,8 +148,8 @@ function Hero() {
           >
             {brandAll.map((item, i) => {
               return (
-                <SwiperSlide>
-                  <Brand imgBrand={item.brandImg} key={i} />
+                <SwiperSlide key={i}>
+                  <Brand imgBrand={item.brandImg} id={item.id} />
                 </SwiperSlide>
               );
             })}
@@ -193,9 +200,8 @@ function Hero() {
           >
             {hitsProducts.map((item, i) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={item.id}>
                   <ReadyMade
-                    key={item.id}
                     id={item.id}
                     image={item.pictures[0].img}
                     title={item.name}
@@ -221,8 +227,8 @@ function Hero() {
           >
             {catalogAll.map((item, i) => {
               return (
-                <SwiperSlide>
-                  <Catalog key={i} image={item.imageC} title={item.title} />
+                <SwiperSlide key={item.id}>
+                  <Catalog image={item.imageC} title={item.title} />
                 </SwiperSlide>
               );
             })}
