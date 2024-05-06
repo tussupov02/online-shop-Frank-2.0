@@ -25,6 +25,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { ShopContext } from "../../Context/ShopContext";
 
 function Hero() {
+  const [check, setCheck] = useState(false)
   const { hitsProducts } = useContext(ShopContext);
   const catalogAll = [
     {
@@ -110,10 +111,13 @@ function Hero() {
       brandImg: "./img/abber.jpg",
     },
   ];
-  useEffect(() => {}, []);
+  const handleChange = (value) => {
+    setCheck(value)
+  }
+
   return (
     <div>
-      <Header />
+      <Header check={check}/>
       <div className="video">
         <div className="video_plus">
           <video
@@ -206,7 +210,7 @@ function Hero() {
             grabCursor={true}
             breakpoints={{
               1420: {
-                slidesPerView: 4.9,
+                slidesPerView: 4.5,
               },
               1050: {
                 slidesPerView: 4,
@@ -245,6 +249,7 @@ function Hero() {
                     image={item.pictures[0].img}
                     title={item.name}
                     price={item.price}
+                    onChange={handleChange}
                   />
                 </SwiperSlide>
               );
@@ -263,7 +268,7 @@ function Hero() {
             grabCursor={true}
             breakpoints={{
               1420: {
-                slidesPerView: 4.9,
+                slidesPerView: 4.5,
               },
               1050: {
                 slidesPerView: 4,

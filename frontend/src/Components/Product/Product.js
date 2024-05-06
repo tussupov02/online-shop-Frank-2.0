@@ -1,192 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import "./Product.css";
-// import { CgCloseO } from "react-icons/cg";
-// import { TfiTruck } from "react-icons/tfi";
-// import Header from "../Header/Header";
-// import { MdArrowBackIos } from "react-icons/md";
-// import { MdArrowForwardIos } from "react-icons/md";
-
-// function Product() {
-//   const product = {
-//     imageMain:
-//       "https://shop.grohe.kz/media/catalog/product/cache/c7966ad44d29363a660218adb5c92c46/3/9/39554000-p.jpg",
-//     imageOne:
-//       "https://shop.grohe.kz/media/catalog/product/cache/c7966ad44d29363a660218adb5c92c46/3/9/39554000-d.jpg",
-//     imageTwo:
-//       "https://shop.grohe.kz/media/catalog/product/cache/c7966ad44d29363a660218adb5c92c46/o/t/other_pictures_1_.jpg",
-//     name: "Подвесной унитаз GROHE Euro Ceramic, альпин-белый (39554000)",
-//     new_price: "193200",
-//     mechanism: "унитаз подвесной",
-//     brand: "Euro Ceramic",
-//     collection: "для туалета",
-//     description:
-//       "	Производитель вправе изменять параметры продукции без дополнительного уведомления. Информация о технических характеристиках, комплекте поставки, стране изготовления и внешнем виде товара может отличаться от фактической и основывается на последних доступных к моменту публикации данных.",
-//   };
-//   const [imgMain, setImgMain] = useState("");
-//   const [showImg, setShowImg] = useState(false);
-//   const myRef = React.createRef();
-
-//   const nextImg = () => {
-//     if (imgMain) {
-//       if (imgMain == product.imageMain) {
-//         setImgMain(product.imageOne);
-//       } else if (imgMain == product.imageOne) {
-//         setImgMain(product.imageTwo);
-//       } else if (imgMain == product.imageTwo) {
-//         setImgMain(product.imageMain);
-//       }
-//     } else {
-//       setImgMain(product.imageOne);
-//     }
-//   };
-//   const backImg = () => {
-//     if (imgMain) {
-//       if (imgMain == product.imageMain) {
-//         setImgMain(product.imageTwo);
-//       } else if (imgMain == product.imageOne) {
-//         setImgMain(product.imageMain);
-//       } else if (imgMain == product.imageTwo) {
-//         setImgMain(product.imageOne);
-//       }
-//     } else {
-//       setImgMain(product.imageTwo);
-//     }
-//   };
-//   useEffect(() => {
-//     if (showImg) {
-//       window.scrollTo(0, 0);
-//       document.body.style.overflow = "hidden";
-//     } else {
-//       document.body.style.overflow = "";
-//     }
-//   }, [showImg]);
-//   return (
-//     <div>
-//       <Header/>
-//       <div className="product">
-//       {showImg ? (
-//         <span ref={myRef} className="showImg">
-//           <CgCloseO className="close" onClick={() => setShowImg(false)} />
-//           <div className="show_img_main">
-//             <div className="arrowsBack">
-//               <MdArrowBackIos className="back" onClick={backImg} />
-//             </div>
-//             <img src={imgMain ? imgMain : product.imageMain} alt="" />
-//             <div className="arrowsNext">
-//               <MdArrowForwardIos className="next" onClick={nextImg} />
-//             </div>
-//           </div>
-
-//           <div className="show_img_box">
-//             <img
-//               src={product.imageMain}
-//               onClick={() => setImgMain(product.imageMain)}
-//               alt=""
-//             />
-//             {product.imageMain === product.imageOne ? (
-//               <></>
-//             ) : (
-//               <img
-//                 src={product?.imageOne}
-//                 onClick={() => setImgMain(product.imageOne)}
-//                 alt=""
-//               />
-//             )}
-//             <img
-//               src={product.imageTwo}
-//               onClick={() => setImgMain(product.imageTwo)}
-//               alt=""
-//             />
-//           </div>
-//         </span>
-//       ) : (
-//         <>
-//           <h2 className="productdisplay_title">{product.name}</h2>
-//           <div className="productdisplay">
-//             <div className="productdisplay__left">
-//               <div className="productdisplay__img">
-//                 <img
-//                   className="productdisplay__main__img"
-//                   src={imgMain ? imgMain : product.imageMain}
-//                   alt=""
-//                   onClick={() => setShowImg(true)}
-//                 />
-//               </div>
-//               <div className="productdisplay__img__list">
-//                 <img
-//                   src={product.imageMain}
-//                   onClick={() => setImgMain(product.imageMain)}
-//                   alt=""
-//                 />
-//                 {product.imageMain === product.imageOne ? (
-//                   <></>
-//                 ) : (
-//                   <img
-//                     src={product?.imageOne}
-//                     onClick={() => setImgMain(product.imageOne)}
-//                     alt=""
-//                   />
-//                 )}
-//                 <img
-//                   src={product.imageTwo}
-//                   onClick={() => setImgMain(product.imageTwo)}
-//                   alt=""
-//                 />
-//               </div>
-//             </div>
-
-//             <div className="productdisplay__center">
-//               <div className="productdisplay__center__box_one">
-//                 <div className="productdisplay__center__articul">
-//                   Артикул: 39554000
-//                 </div>
-//                 <div className="productdisplay__center__prices">
-//                   {product.new_price} ₸
-//                 </div>
-//                 <button onClick={() => {}}>ДОБАВИТЬ В КОРЗИНУ</button>
-//               </div>
-//               <div className="productdispaly__center__description">
-//                 <p>
-//                   Тип товара:{" "}
-//                   <span style={{ fontWeight: "300" }}>{product.mechanism}</span>
-//                 </p>
-//                 <p>
-//                   Бренд:{" "}
-//                   <span style={{ fontWeight: "300" }}>{product.brand}</span>
-//                 </p>
-//                 <p>
-//                   Коллекция:{" "}
-//                   <span style={{ fontWeight: "300" }}>
-//                     {product.collection}
-//                   </span>
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="productdisplay__right">
-//               <div className="productdisplay__right_img">
-//                 <TfiTruck className="productdisplay__right_icon" />{" "}
-//                 <p>Доставка</p>
-//               </div>
-//               <div className="productdisplay__right_content">
-//                 <p>Доставка по всему Казахстану</p>
-//               </div>
-//             </div>
-//           </div>
-//           <p className="content">
-//             Описание:{" "}
-//             <span style={{ fontWeight: "300" }}>{product.description}</span>
-//           </p>
-//         </>
-//       )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Product;
-
-////////////////////////////////////
-
 import React, { useState, useEffect, useContext } from "react";
 import "./Product.css";
 import { CgCloseO } from "react-icons/cg";
@@ -210,15 +21,22 @@ function Product() {
   const { all_product } = useContext(ShopContext);
   const { productId } = useParams();
   const product = all_product.find((e) => e.id === Number(productId));
-
-  const [imgMain, setImgMain] = useState([]);
+  const [local, setLocal] = useState([]);
+  const [check, setCheck] = useState(false);
   const [showImg, setShowImg] = useState(false);
-  const [img_All, setAll_img] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [item, setItem] = useState(0);
   const myRef = React.createRef();
+  const [probel, setProbel] = useState("");
 
-
+  useEffect(() => {
+    console.log(product);
+    if (product) {
+      var n = product.price.toString();
+      return setProbel(
+        n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " ")
+      );
+    }
+  }, [product]);
   useEffect(() => {
     if (showImg) {
       window.scrollTo(0, 0);
@@ -228,63 +46,68 @@ function Product() {
     }
   }, [showImg]);
 
-  const nextImg = () => {
-    if (item === img_All.length - 1) {
-      setItem(0);
-      setImgMain(img_All[0].img);
-    } else {
-      setItem(item + 1);
-      setImgMain(img_All[item + 1].img);
+  useEffect(() => {
+    if (check) {
+      localStorage.setItem(
+        "save",
+        JSON.stringify([
+          ...local,
+          {
+            id: product.id,
+            image: product.pictures[0].img,
+            price: product.price,
+            title: product.name,
+          },
+        ])
+      );
+      setCheck(false);
     }
-    console.log(img_All);
-  };
-  const backImg = () => {
-    if (item === 0) {
-      setItem(img_All.length);
-      setImgMain(img_All[setAll_img.length].img);
-    } else {
-      setItem(item - 1);
-      setImgMain(img_All[item - 1].img);
-    }
-  };
-  if(!product){
-    return <div>Loader...</div>
-  }
-  else{
+  }, [local]);
 
+  const save = () => {
+    if (localStorage.getItem("save") !== null) {
+      setLocal(JSON.parse(localStorage.getItem("save")));
+      setCheck(true);
+    } else {
+      setLocal([]);
+      setCheck(true);
+    }
+  };
+
+  if (!product) {
+    return <div></div>;
+  } else {
     return (
       <div>
-        <Header />
+        <Header check={check} />
         <div className="product">
           {showImg ? (
             <span ref={myRef} className="showImg">
               <CgCloseO className="close" onClick={() => setShowImg(false)} />
-              <div className="show_img_main">
-                <div className="arrowsBack">
-                  <MdArrowBackIos className="back" onClick={backImg} />
-                </div>
-                <img className="show_img_main_img" src={imgMain} alt="" />
-                <div className="arrowsNext">
-                  <MdArrowForwardIos className="next" onClick={nextImg} />
-                </div>
-              </div>
-  
-              <div className="show_img_box">
-                {img_All.map((imgAll, i) => {
+              <Swiper
+                loop={true}
+                spaceBetween={10}
+                navigation={true}
+                slidesPerView={1}
+                grabCursor={true}
+                modules={[Navigation, Thumbs]}
+                className="showImg__list"
+              >
+                {product.pictures?.map((imgAll, i) => {
                   return (
-                    <img
+                    <SwiperSlide
                       key={i}
-                      src={imgAll.img}
-                      onClick={() => setImgMain(imgAll.img)}
-                      alt=""
-                    />
+                      className="productdisplay__img__list_item"
+                    >
+                      <img src={imgAll.img} alt="" />
+                    </SwiperSlide>
                   );
                 })}
-              </div>
+              </Swiper>
             </span>
           ) : (
             <>
-              <h2 className="productdisplay_title">Test</h2>
+              <h2 className="productdisplay_title">{product.name}</h2>
               <div className="productdisplay">
                 <div className="productdisplay__left">
                   <Swiper
@@ -304,9 +127,8 @@ function Product() {
                   >
                     {product.pictures?.map((item, i) => {
                       return (
-                        <SwiperSlide>
+                        <SwiperSlide key={i}>
                           <img
-                            key={i}
                             className="productdisplay__main__img"
                             src={item.img}
                             alt=""
@@ -320,7 +142,7 @@ function Product() {
                     onSwiper={setThumbsSwiper}
                     loop={true}
                     spaceBetween={10}
-                    slidesPerView={4}
+                    slidesPerView={3}
                     modules={[Navigation, Thumbs]}
                     className="productdisplay__img__list"
                   >
@@ -336,6 +158,154 @@ function Product() {
                     })}
                   </Swiper>
                 </div>
+                <div className="productdisplay__center">
+                  {product.vendor_code ? (
+                    <div className="article">
+                      Артикул: {product.vendor_code}
+                    </div>
+                  ) : null}
+                  <div className="productdisplay__buy_main">
+                    <h3 className="productdisplay_price">{probel} ₸</h3>
+                    <div className="productdisplay__buy" onClick={save}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        class="bi bi-cart3"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />{" "}
+                      </svg>
+                      <p>В корзину</p>
+                    </div>
+                  </div>
+                  <div className="characteristics_main">
+                    <h3 className="characteristics_title">Характеристики</h3>
+                    {product.brand ? (
+                      <div className="tableRow">
+                        <div className="tableRow_lef">Бренд</div>
+                        <div className="tableRow_cent">
+                          ............................................
+                        </div>
+                        <div className="tableRow_righ">
+                          {product.brand.name}
+                        </div>
+                      </div>
+                    ) : null}
+                    {product.countries ? (
+                      <div className="tableRow">
+                        <div className="tableRow_lef">Страна</div>
+                        <div className="tableRow_cent">
+                          ...........................................
+                        </div>
+                        <div className="tableRow_righ">
+                          {product.countries.name}
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="productdisplay__rigth">
+                  <div className="productdisplay__rigth_main">Доставка</div>
+                  <div className="productdisplay__rigth_content">
+                    Самовывоз, доставка по всему Казахстану
+                  </div>
+                </div>
+              </div>
+              <div className="addinational_information_main">
+                <div className="addinational_information">
+                  <h3 className="addinational_title">Все характеристики</h3>
+                  {product.category ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Категория</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.category.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.colours ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Цвет</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.colours.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.brand ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Бренд</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.brand.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.covers ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Покрытие</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.covers.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.countries ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Страна</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.countries.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.types ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Тип</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.types.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.materials ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">Материал</div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.materials.name}
+                      </div>
+                    </div>
+                  ) : null}
+                  {product.additional_info ? (
+                    <div className="addinational_tableRow">
+                      <div className="addinational_tableRow_lef">
+                        Дополнительная информация
+                      </div>
+                      <div className="addinational_tableRow_cent">
+                        ......................................................................................
+                      </div>
+                      <div className="addinational_tableRow_righ">
+                        {product.additional_info}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
               </div>
             </>
           )}
@@ -343,7 +313,6 @@ function Product() {
       </div>
     );
   }
-
 }
 
 export default Product;

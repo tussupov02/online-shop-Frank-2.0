@@ -12,6 +12,7 @@ function Header({ check }) {
   const [num, setNum] = useState(0);
   const { all_product } = useContext(ShopContext);
   const myRef = React.useRef(null);
+  const catalogRef = React.useRef(null);
 
   const { pathname } = useLocation();
 
@@ -20,21 +21,21 @@ function Header({ check }) {
   }, [pathname]);
 
   useEffect(() => {
-    if (localStorage.getItem("save") !== null) {
-      setNum(JSON.parse(localStorage.getItem("save")).length);
+    const savedData = localStorage.getItem("save");
+    if (savedData !== null) {
+      setNum(JSON.parse(savedData).length);
     } else {
       setNum(0);
     }
-    console.log(num);
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("save") !== null) {
-      setNum(JSON.parse(localStorage.getItem("save")).length);
+    const savedData = localStorage.getItem("save");
+    if (savedData !== null) {
+      setNum(JSON.parse(savedData).length);
     } else {
       setNum(0);
     }
-    console.log(num);
   }, [check]);
 
   useEffect(() => {
@@ -42,12 +43,34 @@ function Header({ check }) {
       myRef.current.scrollIntoView();
       if (catalog) {
         document.body.style.overflow = "hidden";
-      } else document.body.style.overflow = "";
-    } else document.body.style.overflow = "";
+        if (catalogRef.current) {
+          catalogRef.current.style.overflow = "scroll";
+        }
+      } else {
+        document.body.style.overflow = "";
+      }
+    } else {
+      document.body.style.overflow = "";
+    }
   }, [catalog, search]);
 
   const handleChange = (value) => {
     setCatalog(value);
+  };
+
+  const handleInputFocus = () => {
+    setSearch(true);
+    setCatalog(false);
+  };
+
+  const handleInputBlur = () => {
+    setTimeout(() => {
+      setSearch(false);
+    }, 200); // Задержка перед закрытием списка, чтобы пользователь мог кликнуть на ссылку
+  };
+
+  const handleLinkMouseDown = () => {
+    setSearch(false); // Закрыть список при клике на ссылку
   };
 
   const swohCatalog = () => {
@@ -61,9 +84,17 @@ function Header({ check }) {
     }, 2000);
   };
 
-  const fileterSearch = all_product.filter((product) => {
-    return product.name.toLowerCase().includes(searchValue.toLowerCase());
-  });
+  const handleLinkClick = (productName) => {
+    setSearchValue(productName);
+    setSearch(false); // Закрыть список после вставки названия товара в input
+  };
+
+  let filterSearchResults = [];
+  if (searchValue && all_product) {
+    filterSearchResults = all_product.filter((product) =>
+      product.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  }
 
   return (
     <header ref={myRef} className="header">
@@ -71,7 +102,6 @@ function Header({ check }) {
         <div
           className="header_catalog"
           onClick={() => setCatalog(!catalog)}
-          // onBlur={() => {if(!checkOnBlur){setCatalog(false)}}}
           tabIndex={0}
         >
           <svg
@@ -101,25 +131,25 @@ function Header({ check }) {
             <input
               type="text"
               placeholder="Поиск по названию или артикулу товара"
-              onClick={() => {
-                setSearch(true);
-                setCatalog(false);
-              }}
-              onBlur={() => setSearch(false)}
+              onFocus={handleInputFocus}
+              onBlur={handleInputBlur}
               tabIndex={0}
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
           </div>
-          {search && searchValue.length > 0 ? (
+          {search && searchValue && filterSearchResults.length > 0 ? (
             <ul className="showIsSearch">
-              {fileterSearch.map((el, i) => {
-                return (
-                  <li className="showIsSearch_item" key={i}>
-                    {el.name}
-                  </li>
-                );
-              })}
+              {filterSearchResults.map((el, i) => (
+                <Link
+                  to={`/product/${el.id}`}
+                  className="showIsSearch_item"
+                  key={i}
+                  onClick={() => handleLinkClick(el.name)}
+                >
+                  {el.name}
+                </Link>
+              ))}
             </ul>
           ) : null}
         </div>
@@ -128,18 +158,17 @@ function Header({ check }) {
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
-            class="bi bi-cart3"
+            className="bi bi-cart3"
             viewBox="0 0 16 16"
           >
-            {" "}
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />{" "}
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
           </svg>
           <p>Корзина</p>
           {num > 0 ? <div className="basket_num">{num}</div> : null}
         </Link>
       </div>
       {catalog ? (
-        <div className="showCatalog_main">
+        <div ref={catalogRef} className="showCatalog_main">
           <div className="showCatalog_main_box">
             <HeaderCatalog onClick={handleChange} />
           </div>

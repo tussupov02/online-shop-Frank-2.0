@@ -1,0 +1,51 @@
+.products_main{
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.no_products{
+    font-size: 24px;
+    font-weight: 300;
+    color: #11203891;
+}
+.caatlog_title{
+    font-size: 40px;
+    font-weight: 300;
+    color: #112038;
+    width: auto;
+    padding-bottom: 10px;
+}
+
+.products_filter{
+    width: 20%;
+}
+.products_title_main{
+    width: 72%;
+}
+.products_all{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    width: 120px;
+    height: 40px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(10, 107, 182);
+    border-radius: 8px;
+    color: white;
+  }
+  .pagination button:disabled{
+    opacity: .4;
+  }

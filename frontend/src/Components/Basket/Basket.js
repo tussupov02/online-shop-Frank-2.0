@@ -4,109 +4,79 @@ import { MdClear } from "react-icons/md";
 import "./Basket.css";
 
 function Basket() {
-  const catalog = [
-    {
-      id: 2,
-      title: "Акриловая",
-      image: "./img/vanna.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 5,
-      title:
-        "Акриловая ванна GRACIYA 1700*780*700 (401104) Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna2.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 9,
-      title: "Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 10,
-      title: "Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna2.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 12,
-      title: "Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna2.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 15,
-      title: "Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-    {
-      id: 1,
-      title: "Акриловая ванна GRACIYA 1700*780*700 (401104)",
-      image: "./img/vanna.webp",
-      article: "401104",
-      price: "461 100 ₸",
-    },
-  ];
   const [local, setLocal] = useState([]);
   const [sum, setSum] = useState(0);
-  useEffect(() => {
-    // localStorage.setItem("save", JSON.stringify(catalog));
+  const [probel, setProbel] = useState("");
 
-    setLocal(JSON.parse(localStorage.getItem("save")) || []);
+  useEffect(() => {
+    document.body.style.overflow = "";
+    const savedItems = JSON.parse(localStorage.getItem("save")) || [];
+    setLocal(savedItems);
+    updateTotalPrice(savedItems);
   }, []);
-  const delet = (id) => {
-    const newCatalog = local.filter((el) => el.id !== id);
-    localStorage.setItem("save", JSON.stringify(newCatalog));
-    setLocal(newCatalog);
-    setSum(0)
+
+  const updateTotalPrice = (items) => {
+    const totalPrice = items.reduce((total, item) => total + item.price, 0);
+    setSum(totalPrice);
   };
+
   useEffect(()=>{
-    if(local.length>0){
-      for(let elem of local){
-        setSum((prev)=>prev+elem.price)
+    var n = sum.toString();
+    return setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+  },[sum])
+
+  const deleteItem = (id) => {
+    const updatedItems = local.filter((item) => item.id !== id);
+    localStorage.setItem("save", JSON.stringify(updatedItems));
+    setLocal(updatedItems);
+    updateTotalPrice(updatedItems);
+  };
+
+
+
+  const getUniqueItems = () => {
+    const uniqueItems = [];
+    local.forEach((item) => {
+      const existingItemIndex = uniqueItems.findIndex((uniqueItem) => uniqueItem.id === item.id);
+      if (existingItemIndex !== -1) {
+        uniqueItems[existingItemIndex].quantity += 1;
+      } else {
+        uniqueItems.push({ ...item, quantity: 1 });
       }
-    }else{
-      setSum(0)
-    }
-  },[local])
+    });
+    return uniqueItems;
+  };
+
   return (
     <div className="basket">
       <h3>Корзина</h3>
       <div className="basket_main">
         <div className="basket_top">
           <div className="basket_top_catalog_main">
-            {local
-              ? local.map((el, i) => {
-                  return (
-                    <div className="basket_top_catalog">
-                      <div className="basket_top_catalog_img">
-                        <img src={el.image} alt="" />
-                      </div>
-                      <div className="basket_top_catalog_title">
-                        <p>{el.title}</p>
-                      </div>
-                      <div className="basket_top_catalog_price">
-                        <p>{el.price} ₸</p>
-                      </div>
-                      <MdClear className="del_basket" onClick={()=>delet(el.id)}/>
-                    </div>
-                  );
-                })
-              : ""}
+            {getUniqueItems().map((item) => (
+              <div key={item.id} className="basket_top_catalog">
+                <div className="basket_top_catalog_img">
+                  <img src={item.image} alt="" />
+                </div>
+                <div className="basket_top_catalog_info">
+                  <div className="basket_top_catalog_title">
+                    <p>{item.title}</p>
+                  </div>
+                  <div className="basket_top_catalog_price">
+                    <p>{item.price} ₸</p>
+                  </div>
+                  <div className="basket_top_catalog_quantity">
+                    <span>Колличество: {item.quantity}</span>
+                  </div>
+                </div>
+                <MdClear className="del_basket" onClick={() => deleteItem(item.id)} />
+              </div>
+            ))}
           </div>
           <div className="basket_top_total">
             Общий итог суммы:
             <div className="basket_top_price_line" />
-            {sum} ₸
+            {probel} ₸
           </div>
         </div>
         <div className="basket_botom">

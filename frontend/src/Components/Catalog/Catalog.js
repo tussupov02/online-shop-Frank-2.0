@@ -6,7 +6,7 @@ function Catalog(props) {
   return (
     <Link
       className="catalog_main"
-      to="/products"
+      to={`/category/${props.title}`}
       style={{
         color: "#112038",
         textDecoration: "none",

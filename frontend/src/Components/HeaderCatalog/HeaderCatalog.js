@@ -289,11 +289,6 @@ import React, { useState } from "react";
 import "./HeaderCatalog.css";
 import { Link } from "react-router-dom";
 import HeaderCatalogItem from "./HeaderCatalogItem";
-// const Router = ReactRouterDOM.BrowserRouter;
-// const Route = ReactRouterDOM.Route;
-// const Routes = ReactRouterDOM.Routes;
-// const Link = ReactRouterDOM.Link;
-
 const nodes = [
   {
     id: "1",
@@ -536,7 +531,7 @@ function HeaderCatalog(props) {
         >
           <div className="showCatalog_name">
             <Link
-              to={`/category/${element.id}`}
+              to={`/category/${element.name}`}
               className="link_main"
               onClick={() => {
                 handleChange(false);

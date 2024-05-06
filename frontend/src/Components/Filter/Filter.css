@@ -1,0 +1,46 @@
+.filter-container {
+    /* background-color: rgb(10, 107, 182); */
+    border-radius: 8px; /* Закругление углов */
+    width: 300px; /* Максимальная ширина контейнера */
+  }
+  
+  .filter-title {
+    font-size: 18px;
+    font-weight: 300;
+    color: #112038;
+    padding: 5px 0;
+  }
+  
+  /* Стили для селекта */
+  .react-select {
+    margin-bottom: 10px; 
+    font-size: 16px;
+    font-weight: 300;
+    color: #112038;
+  }
+  .search_of_filter{
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(10, 107, 182);
+    color: white;
+    cursor: pointer;
+    transition: all .5s ease;
+    fill: white;
+}
+
+.search_of_filter:hover{
+    border: 1px solid #3984be;
+    box-shadow: 0 0 9px rgba(57,132,190,0.5);
+}
+  /* Дополнительные стили для мобильных устройств */
+  @media screen and (max-width: 768px) {
+    .filter-container {
+      margin-right: 0; /* Убираем отступ справа на маленьких экранах */
+      margin-bottom: 20px; /* Добавляем отступ снизу */
+    }
+  }

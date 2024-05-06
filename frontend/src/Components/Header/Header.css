@@ -22,7 +22,6 @@ body{
     padding: 0 7%;
     height: auto;
     transition: all .5s ease;
-    /* border-bottom: 1px solid rgba(78, 77, 77, 0.274); */
     color: #112038;
     z-index: 999;
     
@@ -142,8 +141,6 @@ body{
     box-shadow: 0 0 9px rgba(36, 93, 136, 0.5);
 }
 .header_cart{
-    /* fill: rgb(147, 147, 147);
-    cursor: pointer; */
     width: 120px;
     height: 40px;
     display: flex;
@@ -152,7 +149,6 @@ body{
     border:2px solid rgba(199, 199, 199, 0.296);
     background-color: #e9eaec3b;
     border-radius: 8px;
-    /* color: rgb(147, 147, 147); */
     background-color: rgb(10, 107, 182);
     color: white;
     cursor: pointer;
@@ -194,9 +190,17 @@ header{
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #112038;
 }
 .showIsSearch_item{
     padding: 10px;
+    color: #112038;
+    text-decoration: none;
+    list-style: none;
+    border-bottom: 1px solid rgba(146, 146, 146, 0.554);
 }
 .showIsSearch_item:hover{
     background: rgb(180, 180, 180);
