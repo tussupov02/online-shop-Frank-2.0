@@ -19,7 +19,7 @@ function App() {
         <ScrollToTop />
         <div className="main_header">
           <div className="main_header_left">
-            <a href="tel:+77058806868" className="main_header_numb">
+            <a href="https://wa.me/77058663634" className="main_header_numb">
               <HiOutlinePhone id="numb" />
               +7 (705) 880-68-68
             </a>
