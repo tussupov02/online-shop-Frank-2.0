@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FooterCatalog.css";
 import { Link } from "react-router-dom";
-// const Router = ReactRouterDOM.BrowserRouter;
-// const Route = ReactRouterDOM.Route;
-// const Routes = ReactRouterDOM.Routes;
-// const Link = ReactRouterDOM.Link;
 
 const data = {
   nodes: [
@@ -234,36 +230,30 @@ const data = {
   ],
 };
 
-class FooterCatalog extends React.Component {
-  state = {
-    data: data,
-    displayChild: null,
-  };
-  render() {
-    return (
-      <div className="footer_catalog">
-        {this.state.data.nodes.map((element, i) => (
-          <div key={i} id={i} className="footer_catalog_box">
-            <div className="footer_catalog_name">
-              <Link className="link_footer_catalog_name" to="/product">
-                {element.name}
-              </Link>
-            </div>
-              <ul className="footer_catalog_content">
-              {element.nodes.map((el) => {
-                return (
-                  <Link className="link_footer_catalog_content" to={`products`} key={el.id}>
-                    {" "}
-                    {el.name}{" "}
-                  </Link>
-                );
-              })}
-              </ul>
+const FooterCatalog = () => {
+  return (
+    <div className="footer_catalog">
+      {data.nodes.map((category, i) => (
+        <div key={i} className="footer_catalog_box">
+          <div className="footer_catalog_name">
+            <Link className="link_footer_catalog_name" to="/product">
+              {category.name}
+            </Link>
           </div>
-        ))}
-      </div>
-    );
-  }
-}
+          <ul className="footer_catalog_content">
+            {category.nodes.map((subCategory) => (
+              <Link
+                className="link_footer_catalog_content"
+                to={`products/${subCategory.id}`}
+              >
+                <li key={subCategory.id}>{subCategory.name}</li>
+              </Link>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default FooterCatalog;
