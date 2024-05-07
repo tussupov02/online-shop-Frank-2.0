@@ -20,10 +20,10 @@ function Basket() {
     setSum(totalPrice);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     var n = sum.toString();
     return setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
-  },[sum])
+  }, [sum]);
 
   const deleteItem = (id) => {
     const updatedItems = local.filter((item) => item.id !== id);
@@ -32,12 +32,12 @@ function Basket() {
     updateTotalPrice(updatedItems);
   };
 
-
-
   const getUniqueItems = () => {
     const uniqueItems = [];
     local.forEach((item) => {
-      const existingItemIndex = uniqueItems.findIndex((uniqueItem) => uniqueItem.id === item.id);
+      const existingItemIndex = uniqueItems.findIndex(
+        (uniqueItem) => uniqueItem.id === item.id
+      );
       if (existingItemIndex !== -1) {
         uniqueItems[existingItemIndex].quantity += 1;
       } else {
@@ -62,14 +62,17 @@ function Basket() {
                   <div className="basket_top_catalog_title">
                     <p>{item.title}</p>
                   </div>
-                  <div className="basket_top_catalog_price">
-                    <p>{item.price} ₸</p>
-                  </div>
-                  <div className="basket_top_catalog_quantity">
-                    <span>Колличество: {item.quantity}</span>
-                  </div>
                 </div>
-                <MdClear className="del_basket" onClick={() => deleteItem(item.id)} />
+                <div className="basket_top_catalog_price">
+                  <p>{item.price} ₸</p>
+                </div>
+                <div className="basket_top_catalog_quantity">
+                  <span>{item.quantity}</span>
+                </div>
+                <MdClear
+                  className="del_basket"
+                  onClick={() => deleteItem(item.id)}
+                />
               </div>
             ))}
           </div>
