@@ -2,25 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./TelegramBot.css";
 
 function TelegramBot() {
-  const TOKEN = "7091557275:AAHb2c1GATD4_tS-Wc7nJbrGFQ9Z18w0Pco";
-  const CHAT_ID = "-4167156592";
+  const TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+  const CHAT_ID = process.env.REACT_APP_TELEGRAM_CHAT_ID;  
   const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [description, setDes2cription] = useState("");
-
   const [nameDirty, setNameDirty] = useState(false);
   const [phoneDirty, setPhoneDirty] = useState(false);
   const [nameError, setNameError] = useState("Имя не может быть пустым");
   const [phoneError, setPhoneError] = useState("Телефон не может быть пустым");
+  const [modalVisible, setModalVisible] = useState(false);
 
-  //валидация для имени
   const nameMandler = (e) => {
-    setName(e.target.value);
-    // const re = /^([а-я]{1}[а-яё]{2,23}|[a-z]{1}[a-z]{2,23})$/;
-    if (name.length<1) {
-      setNameError("Некоректное имя");
+    const value = e.target.value.trim(); // Удаляем лишние пробелы в начале и в конце
+    setName(value);
+
+    if (!value) {
+      setNameError("Имя не может быть пустым");
+    } else if (!/^[а-яёa-z\s]+$/i.test(value)) {
+      setNameError("Имя может содержать только буквы");
     } else {
       setNameError("");
     }
@@ -57,13 +58,31 @@ function TelegramBot() {
         parse_mode: "html",
       }),
     })
-      .then((res) => {
-        console.log("URAAAA" + res);
-      })
-      .catch((err) => {
-        console.warn("NOOOO" + err);
-      });
+    .then((res) => {
+      // Проверяем статус ответа
+      if (res.ok) {
+        // Открываем модальное окно при успешной отправке
+        setModalVisible(true);
+        // Закрываем модальное окно через 1 секунду
+        setTimeout(() => {
+          setModalVisible(false);
+          // Сбрасываем значения инпутов
+          setName("");
+          setPhone("");
+        }, 700);
+      } else {
+        // В случае ошибки выводим сообщение в консоль
+        console.error("Ошибка при отправке сообщения:", res.status);
+      }
+    })
+    .catch((error) => {
+      // В случае ошибки выводим сообщение в консоль
+      console.error("Ошибка при отправке сообщения:", error);
+      // Здесь можно предпринять дополнительные действия, например, отображение сообщения для пользователя
+    });
   };
+
+  
 
   const blurHandler = (e) => {
     switch (e.target.name) {
@@ -90,7 +109,9 @@ function TelegramBot() {
             placeholder="Ваше имя"
             onBlur={(e) => blurHandler(e)}
           />
-          {nameDirty && nameError && <div className="errorForm">{nameError}</div>}
+          {nameDirty && nameError && (
+            <div className="errorForm">{nameError}</div>
+          )}
         </label>
         <label htmlFor="">
           <h4>Введите ваш телефон</h4>
@@ -107,10 +128,17 @@ function TelegramBot() {
             <div className="errorForm">{phoneError}</div>
           )}
         </label>
-            <button disabled={!formValid} type="button" onClick={btn}>
+        <button disabled={!formValid} type="button" onClick={btn}>
           Отправить
         </button>
       </form>
+      {modalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>Ваше сообщение было успешно отправлено!</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

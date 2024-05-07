@@ -4,7 +4,7 @@ import './Brand.css'
 
 function Brand(props) {
   return (
-    <Link to={`/category/${props.title}`} className='brand_main'>
+    <Link to={`/brands/${props.title}`} className='brand_main'>
         <img src={props.imgBrand} alt="" />
     </Link>
   )

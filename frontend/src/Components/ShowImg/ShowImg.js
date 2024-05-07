@@ -3,50 +3,50 @@ import "./ShowImg.css";
 
 function ShowImg() {
   return (
-    <div class="showImg_main">
-      <div class="gallery">
+    <div className="showImg_main">
+      <div className="gallery">
         <ul>
           <li>
-            <img src={require("../../Assets/1.jpg")}/>
+            <img src="./img/1.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/2.jpg")}/>
+            <img src="./img/2.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/3.jpg")}/>
+            <img src="./img/3.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/4.jpg")}/>
+            <img src="./img/4.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/5.jpg")}/>
+            <img src="./img/5.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/6.jpg")}/>
+            <img src="./img/6.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/7.jpg")}/>
+            <img src="./img/7.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/8.jpg")}/>
+            <img src="./img/8.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/9.jpg")}/>
+            <img src="./img/9.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/10.jpg")}/>
+            <img src="./img/10.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/12.jpg")}/>
+            <img src="./img/12.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/13.jpg")}/>
+            <img src="./img/13.jpg}"/>
           </li>
           <li>
-            <img src={require("../../Assets/14.jpg")}/>
+            <img src="./img/14.jpg"/>
           </li>
           <li>
-            <img src={require("../../Assets/15.jpg")}/>
+            <img src="./img/15.jpg"/>
           </li>
         </ul>
       </div>

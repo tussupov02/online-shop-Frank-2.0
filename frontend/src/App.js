@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import logo from "./Assets/logo.png";
 import Footer from "./Components/Footer/Footer";
@@ -11,6 +10,8 @@ import Product from "./Components/Product/Product";
 import ScrollToTop from "./Components/ScrollToTop";
 import Basket from "./Components/Basket/Basket";
 import Category from "./Components/Category/Category";
+import CategoryType from "./Components/Category/CategoryType";
+import CategoryBrand from "./Components/Category/CategoryBrand";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <ScrollToTop />
         <div className="main_header">
           <div className="main_header_left">
-            <a href="https://wa.me/77058663634" className="main_header_numb">
+            <a href="https://wa.me/77058806868" className="main_header_numb">
               <HiOutlinePhone id="numb" />
               +7 (705) 880-68-68
             </a>
@@ -52,8 +53,15 @@ function App() {
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
           </Route>
-          <Route path="category" element={<Category/>}>
-            <Route path=":categoryId" element={<Category/>}/>
+          <Route path="category" element={<Category />}>
+            <Route path=":categoryId" element={<Category />} />
+            <Route
+              path=":categoryId/:categoryType"
+              element={<CategoryType />}
+            />
+          </Route>
+          <Route path="brands" element={<CategoryBrand/>}>
+          <Route path=":categoryBrand" element={<CategoryBrand/>}/>
           </Route>
           <Route path="/basket" element={<Basket />} />
         </Routes>

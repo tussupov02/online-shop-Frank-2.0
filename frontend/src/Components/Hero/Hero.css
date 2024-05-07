@@ -318,9 +318,9 @@
         height: 80px;
         border-radius: 50%;
         margin: 10px;
-        animation: asd 5s infinite;
-        box-shadow: 0px 0px 1px 0px #061f30;
-        background-color: rgba(10, 108, 182, 0.571);
+        /* animation: asd 5s infinite; */
+        box-shadow: 0px 0px 1px 0px #068b18;
+        background-color: rgba(47, 182, 10, 0.571);
         position: fixed;
         bottom: 0;
         left: 0;
@@ -333,11 +333,12 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background-color: rgba(10, 108, 182, 0.277);
+        background-color: rgba(20, 181, 33, 0.277);
         animation: mymove 5s infinite;
+
     }
     .number_absolut_img{
-        color: #112038;
+        fill: rgb(219, 218, 218);    
     }
     @keyframes asd {
         0%{

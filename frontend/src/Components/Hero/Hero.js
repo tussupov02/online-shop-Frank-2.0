@@ -5,14 +5,12 @@ import { GrCertificate } from "react-icons/gr";
 import { LiaBoxesSolid } from "react-icons/lia";
 import { TbTruckReturn } from "react-icons/tb";
 import ReadyMade from "../ReadyMade/ReadyMade";
-import imageReady from "../../Assets/ready.jpg";
 import Catalog from "../Catalog/Catalog";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import ShowImg from "../ShowImg/ShowImg";
 import Header from "../Header/Header";
 import Brand from "../Brand/Brand";
-import { HiOutlinePhone } from "react-icons/hi";
-import { BsInstagram } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa6";
 import TelegramBot from "../TelegramBot/TelegramBot";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -67,7 +65,7 @@ function Hero() {
   const brandAll = [
     {
       id: 4,
-      name: "Groge",
+      name: "Grohe",
       brandImg: "./img/grohe.PNG",
     },
     {
@@ -317,8 +315,8 @@ function Hero() {
       </div>
       <div className="number_absolut_main">
         <div className="number_absolut">
-          <a href="tel:+77058806868">
-            <HiOutlinePhone
+          <a href="https://wa.me/77058806868">
+            <FaWhatsapp
               style={{ fontSize: "32px" }}
               className="number_absolut_img"
             />

@@ -5,32 +5,47 @@ import Filter from "../Filter/Filter";
 import Header from "../Header/Header";
 import ProductsItem from "../ProductsItem/ProductsItem";
 import "./Category.css";
-import CategoryType from "./CategoryType";
 
-function Category() {
+function CategoryType() {
   const [check, setCheck] = useState(false);
   const { all_product } = useContext(ShopContext);
   const { categoryId, categoryType } = useParams();
   const [products, setProducts] = useState([]);
+  const [productType, setProductType] = useState([]);
   const [newProducts, setNewProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    // Установка начальных данных при загрузке всех продуктов
+    // Фильтрация продуктов при изменении categoryId и categoryType
     setProducts(
       all_product.filter(
         (e) => e.brand.name === categoryId || e.category.name === categoryId
       )
     );
-  }, [all_product, categoryId]);
+  }, [all_product, categoryId, categoryType]);
 
   useEffect(() => {
+    // Фильтрация продуктов по типу
+    setProductType(
+      products.filter((e) => {
+        // Проверка, содержит ли имя продукта ключевое слово
+        const nameContainsKeyword =
+          e.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+          e.types?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+          e.covers?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+          e.materials?.name.toLowerCase().includes(categoryType.toLowerCase());
+        return nameContainsKeyword;
+      })
+    );
+  }, [products, categoryType]);
+
+  useEffect(() => {
+    // Обновление newProducts при изменении productType
     setLoading(true);
-    // Обновление newProducts при изменении products
-    setNewProducts(products);
+    setNewProducts(productType);
     setLoading(false);
-  }, [products]);
+  }, [productType]);
 
   const handleChange = (value) => {
     setCheck(value);
@@ -54,18 +69,12 @@ function Category() {
       setCurrentPage(1);
       setNewProducts(value);
     };
-
-    // Проверка наличия параметра categoryType
-    if (categoryType) {
-      return <CategoryType />;
-    }
-
     return (
       <div>
         <Header check={check} />
         <div className="products_main">
           <div className="products_filter">
-            <Filter products={products} onChange={filterProducts} />
+            <Filter products={productType} onChange={filterProducts} />
           </div>
           <div className="products_title_main">
             <h2 className="caatlog_title">{categoryId}</h2>
@@ -111,4 +120,4 @@ function Category() {
   }
 }
 
-export default Category;
+export default CategoryType;

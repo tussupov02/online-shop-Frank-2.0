@@ -1,558 +1,3 @@
-// import React, { useState } from "react";
-// import "./HeaderCatalog.css";
-// import { Link } from "react-router-dom";
-// // const Router = ReactRouterDOM.BrowserRouter;
-// // const Route = ReactRouterDOM.Route;
-// // const Routes = ReactRouterDOM.Routes;
-// // const Link = ReactRouterDOM.Link;
-
-// const data = {
-//   nodes: [
-//     {
-//       id: "1",
-//       name: "Ванны",
-//       category: '1',
-//       nodes: [
-//         {
-//           id: "bath_1.1",
-//           name: "Акриловые",
-//         },
-//         {
-//           id: "bath_1.3",
-//           name: "Отдельностоящие",
-//         },
-//         {
-//           id: "bath_1.2",
-//           name: "Стальные",
-//         },
-//         {
-//           id: "bath_1.4",
-//           name: "Чугунные",
-//         },
-//       ],
-//     },
-//     {
-//       id: "2",
-//       name: "Смесители",
-//       category: '2/products',
-//       nodes: [
-//         {
-//           id: "faucets_1.1",
-//           name: "Душевые системы",
-//         },
-//         {
-//           id: "faucets_1.2",
-//           name: "Для раковины",
-//         },
-//         {
-//           id: "faucets_1.3",
-//           name: "Для ванны",
-//         },
-//         {
-//           id: "faucets_1.4",
-//           name: "Гигиенические души",
-//         },
-//         {
-//           id: "faucets_1.5",
-//           name: "Для биде",
-//         },
-//         {
-//           id: "faucets_1.6",
-//           name: "Для кухни",
-//         },
-//         {
-//           id: "faucets_1.7",
-//           name: "Душевые стойки",
-//         },
-//       ],
-//     },
-//     {
-//       id: "3",
-//       name: "Унитазы и биде",
-//       category: '3/products',
-//       nodes: [
-//         {
-//           id: "toilets_1.1",
-//           name: "Подвесные",
-//         },
-//         {
-//           id: "toilets_1.3",
-//           name: "Напольные",
-//         },
-//         {
-//           id: "toilets_1.2",
-//           name: "Импульсные",
-//         },
-//       ],
-//     },
-//     {
-//       id: "4",
-//       name: "Душевые кабины",
-//       category: '4/products',
-//       nodes: [
-//         {
-//           id: "shower_1.1",
-//           name: "Душевые кабины",
-//         },
-//         {
-//           id: "shower_1.3",
-//           name: "Душевые ограждения",
-//         },
-//       ],
-//     },
-//     {
-//       id: "5",
-//       name: "Инсталляции",
-//       category: '5/products',
-//       nodes: [
-//         {
-//           id: "installations_172.1",
-//           name: "Для подвесных унитазов",
-//         },
-//         {
-//           id: "installations_172.3",
-//           name: "Для биде",
-//         },
-//         {
-//           id: "installations_172.2",
-//           name: "Для раковин",
-//         },
-//         {
-//           id: "installations_172.4",
-//           name: "Бачок скрытого монтажа",
-//         },
-//         {
-//           id: "installations_172.5",
-//           name: "Комплект инсталляции с унитазом",
-//         },
-//       ],
-//     },
-//     {
-//       id: "6",
-//       name: "Мойки для кухни",
-//       category: '6/products',
-//       nodes: [
-//         {
-//           id: "sinks_1.1",
-//           name: "Подсольного монтажа",
-//         },
-//         {
-//           id: "sinks_1.3",
-//           name: "Настольного монтажа",
-//         },
-//       ],
-//     },
-//     {
-//       id: "7",
-//       name: "Мебель для ванных комнат",
-//       category: '7/products',
-//       nodes: [
-//         {
-//           id: "furniture_1.1",
-//           name: "Тумбы с раковиной",
-//         },
-//         {
-//           id: "furniture_1.3",
-//           name: "Зеркала",
-//         },
-//         {
-//           id: "furniture_1.2",
-//           name: "Пеналы",
-//         },
-//       ],
-//     },
-//     {
-//       id: "8",
-//       name: "Раковины",
-//       category: '8/products',
-//       nodes: [
-//         {
-//           id: "sinks_2.1",
-//           name: "На столешницу",
-//         },
-//         {
-//           id: "sinks_2.3",
-//           name: "Под столешницу",
-//         },
-//       ],
-//     },
-//     {
-//       id: "9",
-//       name: "Аксессуары",
-//       category: '9/products',
-//       nodes: [
-//         {
-//           id: "abc_172.22.22.214.if.1",
-//           name: "Полотенцедержатели",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.3",
-//           name: "Дозаторы",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.2",
-//           name: "Ершики",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.1",
-//           name: "Крючки",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.1",
-//           name: "Держатели туалетной бумаги",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.3",
-//           name: "Полки",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.2",
-//           name: "Мыльницы",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.1",
-//           name: "Стаканы",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.1",
-//           name: "Сифоны",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.3",
-//           name: "Лейки",
-//         },
-//         {
-//           id: "abc_172.22.22.214.if.2",
-//           name: "Шланги",
-//         },
-//       ],
-//     },
-//   ],
-// };
-
-// class HeaderCatalog extends React.Component {
-//   state = {
-//     data: data,
-//     displayChild: null,
-//   };
-//   render() {
-//     const check = (el) => {
-//       this.expandParent(el);
-//     };
-//     return (
-//       <div className="showCatalog">
-//         {this.state.data.nodes.map((element) => (
-//           <div
-//             key={element.id}
-//             onMouseOver={() => check(element.id)}
-//             className="showCatalog_box"
-//           >
-//             <div className="showCatalog_name">
-//               <Link className="link_main" to={`/category/${element.id}`}>
-//                 {element.name}
-//               </Link>
-//             </div>
-//             <div className="showCatalog_content">
-//               {element.id === this.state.displayChild &&
-//                 element.nodes &&
-//                 this._renderChildren(element.nodes)}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     );
-//   }
-
-//   _renderChildren = (nodes) => {
-//     const result = nodes.map((el) => {
-//       return (
-//         <Link className="link" to={`product/${el.id}`} key={el.id}>
-//           {" "}
-//           {el.name}{" "}
-//         </Link>
-//       );
-//     });
-
-//     return <ul>{result}</ul>;
-//   };
-
-//   expandParent = (id) => {
-//     this.setState({
-//       displayChild: id,
-//     });
-//   };
-// }
-
-// export default HeaderCatalog;
-
-////
-
-// import React, { useState } from "react";
-// import "./HeaderCatalog.css";
-// import { Link } from "react-router-dom";
-// import HeaderCatalogItem from "./HeaderCatalogItem";
-// const nodes = [
-//   {
-//     id: "1",
-//     name: "Ванны",
-//     category: "1",
-//     nodes: [
-//       {
-//         category: "Ванны",
-//         id: "bath_1.1",
-//         name: "Акриловые",
-//       },
-//       {
-//         category: "Ванны",
-//         id: "bath_1.3",
-//         name: "Отдельностоящие",
-//       },
-//       {
-//         category: "Ванны",
-//         id: "bath_1.2",
-//         name: "Стальные",
-//       },
-//       {
-//         category: "Ванны",
-//         id: "bath_1.4",
-//         name: "Чугунные",
-//       },
-//     ],
-//   },
-//   {
-//     id: "2",
-//     name: "Смесители",
-//     category: "2/products",
-//     nodes: [
-//       {
-//         id: "faucets_1.1",
-//         name: "Душевые системы",
-//       },
-//       {
-//         id: "faucets_1.2",
-//         name: "Для раковины",
-//       },
-//       {
-//         id: "faucets_1.3",
-//         name: "Для ванны",
-//       },
-//       {
-//         id: "faucets_1.4",
-//         name: "Гигиенические души",
-//       },
-//       {
-//         id: "faucets_1.5",
-//         name: "Для биде",
-//       },
-//       {
-//         id: "faucets_1.6",
-//         name: "Для кухни",
-//       },
-//       {
-//         id: "faucets_1.7",
-//         name: "Душевые стойки",
-//       },
-//     ],
-//   },
-//   {
-//     id: "3",
-//     name: "Унитазы и биде",
-//     category: "3/products",
-//     nodes: [
-//       {
-//         id: "toilets_1.1",
-//         name: "Подвесные",
-//       },
-//       {
-//         id: "toilets_1.3",
-//         name: "Напольные",
-//       },
-//       {
-//         id: "toilets_1.2",
-//         name: "Импульсные",
-//       },
-//     ],
-//   },
-//   {
-//     id: "4",
-//     name: "Душевые кабины",
-//     category: "4/products",
-//     nodes: [
-//       {
-//         id: "shower_1.1",
-//         name: "Душевые кабины",
-//       },
-//       {
-//         id: "shower_1.3",
-//         name: "Душевые ограждения",
-//       },
-//     ],
-//   },
-//   {
-//     id: "5",
-//     name: "Инсталляции",
-//     category: "5/products",
-//     nodes: [
-//       {
-//         id: "installations_172.1",
-//         name: "Для подвесных унитазов",
-//       },
-//       {
-//         id: "installations_172.3",
-//         name: "Для биде",
-//       },
-//       {
-//         id: "installations_172.2",
-//         name: "Для раковин",
-//       },
-//       {
-//         id: "installations_172.4",
-//         name: "Бачок скрытого монтажа",
-//       },
-//       {
-//         id: "installations_172.5",
-//         name: "Комплект инсталляции с унитазом",
-//       },
-//     ],
-//   },
-//   {
-//     id: "6",
-//     name: "Мойки для кухни",
-//     category: "6/products",
-//     nodes: [
-//       {
-//         id: "sinks_1.1",
-//         name: "Подсольного монтажа",
-//       },
-//       {
-//         id: "sinks_1.3",
-//         name: "Настольного монтажа",
-//       },
-//     ],
-//   },
-//   {
-//     id: "7",
-//     name: "Мебель для ванных комнат",
-//     category: "7/products",
-//     nodes: [
-//       {
-//         id: "furniture_1.1",
-//         name: "Тумбы с раковиной",
-//       },
-//       {
-//         id: "furniture_1.3",
-//         name: "Зеркала",
-//       },
-//       {
-//         id: "furniture_1.2",
-//         name: "Пеналы",
-//       },
-//     ],
-//   },
-//   {
-//     id: "8",
-//     name: "Раковины",
-//     category: "8/products",
-//     nodes: [
-//       {
-//         id: "sinks_2.1",
-//         name: "На столешницу",
-//       },
-//       {
-//         id: "sinks_2.3",
-//         name: "Под столешницу",
-//       },
-//     ],
-//   },
-//   {
-//     id: "9",
-//     name: "Аксессуары",
-//     category: "9/products",
-//     nodes: [
-//       {
-//         id: "abc_172.22.22.214.if.165",
-//         name: "Полотенцедержатели",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.523",
-//         name: "Дозаторы",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.275",
-//         name: "Ершики",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.1123",
-//         name: "Крючки",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.1989",
-//         name: "Держатели туалетной бумаги",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.3",
-//         name: "Полки",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.2",
-//         name: "Мыльницы",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.1212",
-//         name: "Стаканы",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.16554",
-//         name: "Сифоны",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.6875",
-//         name: "Лейки",
-//       },
-//       {
-//         id: "abc_172.22.22.214.if.2655",
-//         name: "Шланги",
-//       },
-//     ],
-//   },
-// ];
-
-// function HeaderCatalog(props) {
-//   const [displayChild, setDisplayChild] = useState(nodes[0].nodes);
-
-//   const handleChange = (event) => {
-//     props.onClick(event); // callback-функция
-//   };
-//   return (
-//     <div className="showCatalog">
-//       {nodes.map((element) => (
-//         <div
-//           key={element.id}
-//           onMouseEnter={() => setDisplayChild(element.nodes)}
-//           className="showCatalog_box"
-//         >
-//           <div className="showCatalog_name">
-//             <Link
-//               to={`/category/${element.name}`}
-//               className="link_main"
-//               onClick={() => {
-//                 handleChange(false);
-//               }}
-//             >
-//               {element.name}
-//             </Link>
-//           </div>
-//         </div>
-//       ))}
-//       <div className="showCatalog_content">
-//         <HeaderCatalogItem idItem={displayChild} />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default HeaderCatalog;
-
 import React, { useState } from "react";
 import "./HeaderCatalog.css";
 import { Link } from "react-router-dom";
@@ -568,21 +13,25 @@ const data = {
           category: "Ванны",
           id: "bath_1.1",
           name: "Акриловые",
+          criteria:"Акрил"
         },
         {
           category: "Ванны",
           id: "bath_1.3",
           name: "Отдельностоящие",
+          criteria:"Отдельностоящ"
         },
         {
           category: "Ванны",
           id: "bath_1.2",
           name: "Стальные",
+          criteria:"Сатль"
         },
         {
           category: "Ванны",
           id: "bath_1.4",
           name: "Чугунные",
+          criteria:"Чугун"
         },
       ],
     },
@@ -592,32 +41,46 @@ const data = {
       category: "2/products",
       nodes: [
         {
+          category: "Смесители",
           id: "faucets_1.1",
           name: "Душевые системы",
+          criteria:"Душевая"
         },
         {
+          category: "Смесители",
           id: "faucets_1.2",
           name: "Для раковины",
+          criteria:"Раковина"
         },
         {
+          category: "Смесители",
           id: "faucets_1.3",
           name: "Для ванны",
+          criteria:"Ванн"
         },
         {
+          category: "Смесители",
           id: "faucets_1.4",
           name: "Гигиенические души",
+          criteria:"Гигиенический"
         },
         {
+          category: "Смесители",
           id: "faucets_1.5",
           name: "Для биде",
+          criteria:"Биде"
         },
         {
+          category: "Смесители",
           id: "faucets_1.6",
           name: "Для кухни",
+          criteria:"Кухня"
         },
         {
+          category: "Смесители",
           id: "faucets_1.7",
           name: "Душевые стойки",
+          criteria:"Стойка"
         },
       ],
     },
@@ -627,16 +90,22 @@ const data = {
       category: "3/products",
       nodes: [
         {
+          category: "Унитазы и биде",
           id: "toilets_1.1",
           name: "Подвесные",
+          criteria:"Подвесной"
         },
         {
+          category: "Унитазы и биде",
           id: "toilets_1.3",
           name: "Напольные",
+          criteria:"Напольный"
         },
         {
+          category: "Унитазы и биде",
           id: "toilets_1.2",
           name: "Импульсные",
+          criteria:"Имульс"
         },
       ],
     },
@@ -646,12 +115,16 @@ const data = {
       category: "4/products",
       nodes: [
         {
+          category: "Душевые кабины",
           id: "shower_1.1",
           name: "Душевые кабины",
+          criteria:"Кабина"
         },
         {
+          category: "Душевые кабины",
           id: "shower_1.3",
           name: "Душевые ограждения",
+          criteria:"Ограждения"
         },
       ],
     },
@@ -661,24 +134,34 @@ const data = {
       category: "5/products",
       nodes: [
         {
+          category: "Инсталляции",
           id: "installations_172.1",
           name: "Для подвесных унитазов",
+          criteria:"Подвесной"
         },
         {
+          category: "Инсталляции",
           id: "installations_172.3",
           name: "Для биде",
+          criteria:"Биде"
         },
         {
+          category: "Инсталляции",
           id: "installations_172.2",
           name: "Для раковин",
+          criteria:"Ракови"
         },
         {
+          category: "Инсталляции",
           id: "installations_172.4",
           name: "Бачок скрытого монтажа",
+          criteria:"Бачок"
         },
         {
+          category: "Инсталляции",
           id: "installations_172.5",
           name: "Комплект инсталляции с унитазом",
+          criteria:"Комплект инсталяц"
         },
       ],
     },
@@ -688,12 +171,16 @@ const data = {
       category: "6/products",
       nodes: [
         {
+          category: "Мойки для кухни",
           id: "sinks_1.1",
           name: "Под сольного монтажа",
+          criteria:"Под сольного монтажа"
         },
         {
+          category: "Мойки для кухни",
           id: "sinks_1.3",
           name: "Настольного монтажа",
+          criteria:"Настольный"
         },
       ],
     },
@@ -703,16 +190,22 @@ const data = {
       category: "7/products",
       nodes: [
         {
+          category: "Мебель для ванных комнат",
           id: "furniture_1.1",
           name: "Тумбы с раковиной",
+          criteria:"Тумба с раковиной"
         },
         {
+          category: "Мебель для ванных комнат",
           id: "furniture_1.3",
           name: "Зеркала",
+          criteria:"Зеркало"
         },
         {
+          category: "Мебель для ванных комнат",
           id: "furniture_1.2",
           name: "Пеналы",
+          criteria:"Пенал"
         },
       ],
     },
@@ -722,12 +215,16 @@ const data = {
       category: "8/products",
       nodes: [
         {
+          category: "Раковины",
           id: "sinks_2.1",
           name: "На столешницу",
+          criteria:"На столешницу"
         },
         {
+          category: "Раковины",
           id: "sinks_2.3",
           name: "Под столешницу",
+          criteria:"Под столешницу"
         },
       ],
     },
@@ -737,48 +234,70 @@ const data = {
       category: "9/products",
       nodes: [
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.165",
           name: "Полотенцедержатели",
+          criteria:"Полотенцедержатель"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.523",
           name: "Дозаторы",
+          criteria:"Дозатор"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.275",
           name: "Ершики",
+          criteria:"Ершик"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.1123",
           name: "Крючки",
+          criteria:"Крючки"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.1989",
           name: "Держатели туалетной бумаги",
+          criteria:"Держатель туалетной бумаги"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.3",
           name: "Полки",
+          criteria:"Полка"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.2",
           name: "Мыльницы",
+          criteria:"Мыльница"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.1212",
           name: "Стаканы",
+          criteria:"Стакан"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.16554",
           name: "Сифоны",
+          criteria:"Сифон"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.6875",
           name: "Лейки",
+          criteria:"Лейка"
         },
         {
+          category: "Аксессуары",
           id: "abc_172.22.22.214.if.2655",
           name: "Шланги",
+          criteria:"Шланг"
         },
       ],
     },
@@ -799,13 +318,14 @@ const HeaderCatalog = (props) => {
       <ul>
         {nodes.map((el) => (
           <Link
+            key={el.id}
             className="link"
-            to={`product/${el.name}`}
+            to={`/category/${el.category}/${el.criteria}`}
             onClick={() => {
               handleChange(false);
             }}
           >
-            <li key={el.id}> {el.name}</li>
+            <li> {el.name}</li>
           </Link>
         ))}
       </ul>

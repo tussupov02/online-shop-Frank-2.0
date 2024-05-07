@@ -172,6 +172,17 @@
     width: 100%;
     position: absolute;
 }
+.addinational_table_main{
+    padding-top: 20px;
+    width: 100%;
+    gap: 10px;
+}
+.addinational_tableRow_top{
+    font-size: 20px;
+}
+.addinational_tableRow_bottom{
+    font-size: 18px;
+}
 
 
 /*  */
@@ -296,5 +307,16 @@
     }
     .product{
         padding: 20px 0;
+    }
+    .addinational_table_main{
+        padding-top: 20px;
+        width: 100%;
+        gap: 10px;
+    }
+    .addinational_tableRow_top{
+        font-size: 18px;
+    }
+    .addinational_tableRow_bottom{
+        font-size: 16px;
     }
 }
