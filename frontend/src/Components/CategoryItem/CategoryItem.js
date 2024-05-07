@@ -62,7 +62,7 @@ const handleChange = () => {
   props.setFilteredProducts(() => filteredProducts);
 };
 
-  return <div className="search_of_filter" onClick={handleChange}>Search</div>;
+  return <div className="search_of_filter" onClick={handleChange}>Использовать фильтр</div>;
 }
 
 export default CategoryItem;
