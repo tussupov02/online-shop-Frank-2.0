@@ -1,7 +1,6 @@
 .filter-container {
     /* background-color: rgb(10, 107, 182); */
     border-radius: 8px; /* Закругление углов */
-    width: 300px; /* Максимальная ширина контейнера */
   }
   
   .filter-title {
