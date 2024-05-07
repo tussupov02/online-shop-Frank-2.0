@@ -51,7 +51,7 @@ function Hero() {
     {
       id: 774,
       imageC: "./img/kitchen.jpg",
-      title: "Мойка для кухни",
+      title: "Мойки для кухни",
     },
     {
       id: 1544,
@@ -60,7 +60,7 @@ function Hero() {
     },
     {
       id: 19875,
-      imageC: "./img/IMG_7800.PNG",
+      imageC: "./img/0f2a1ddc-cd58-4386-b492-46dd4c228974.jpg",
       title: "Раковины",
     },
   ];
@@ -135,7 +135,7 @@ function Hero() {
       <div className="brands">
         <h3>
           {" "}
-          Официальный салон сантехники <b>FRANK</b>{" "}
+          Мультибрендовый салон сантехники <b>FRANK</b>{" "}
         </h3>
         <h4>Бренды</h4>
         <div className="brand_all">
@@ -151,10 +151,16 @@ function Hero() {
                 slidesPerView: 6,
               },
               1200: {
-                slidesPerView: 5,
+                slidesPerView: 5.8,
               },
               1000: {
-                slidesPerView: 4,
+                slidesPerView: 5.2,
+              },
+              750: {
+                slidesPerView: 4.8,
+              },
+              500: {
+                slidesPerView: 4.2,
               },
             }}
             className="brand_box"
@@ -195,7 +201,7 @@ function Hero() {
             <div className="box_icons">
               <LiaBoxesSolid style={{ fontSize: "50px" }} />
             </div>
-            <h5>Широкий ассотримент сантехники и мебели для ванной комнаты </h5>
+            <h5>Широкий ассортимент сантехники и мебели для ванной комнаты </h5>
           </div>
         </div>
       </div>

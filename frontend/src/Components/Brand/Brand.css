@@ -5,6 +5,10 @@
     justify-content: space-evenly;
     background-color: white;
 }
+.brands .swiper-wrapper{
+    display: flex;
+    align-items: center;
+}
 .brands h3{
     font-size: 40px;
     font-weight: 300;
@@ -19,18 +23,18 @@
 .brand_all{
     width: 100%;
     overflow: hidden;
-
 }
 .brand_box{
     position:inherit;
     padding-top: 20px;
     display: flex;
+    align-items: center;    
     gap: 20px;
     columns: 1;
 }
 .brand_main{
-    min-width: 200px;
-    height: 150px;
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +44,8 @@
     background-color: white;
 }
 .brand_main img{
-    width: 80% ;
+    width: 80%;
+    object-fit: contain;
     display: flex;
     justify-content: center;
 }
@@ -79,7 +84,7 @@
         columns: 1;
     }
     .brand_main{
-        min-width: 200px;
+        width: 100%;
         padding: 20px;
         /* grid-template-rows: 280px 50px; */
         gap: 20px;
@@ -104,12 +109,12 @@
         font-size: 18px;
     }
     .brand_main{
-        min-width: 44%;
-        height: 120px;
+        width:100%;
+        height: auto;
     }
 }
 @media (max-width:483px) {
     .brand_main{
-        min-width: 160px;
+        width: 100%;
     }
 }
