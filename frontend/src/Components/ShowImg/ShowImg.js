@@ -40,7 +40,7 @@ function ShowImg() {
             <img src="./img/12.jpg"/>
           </li>
           <li>
-            <img src="./img/13.jpg}"/>
+            <img src="./img/13.jpg"/>
           </li>
           <li>
             <img src="./img/14.jpg"/>
