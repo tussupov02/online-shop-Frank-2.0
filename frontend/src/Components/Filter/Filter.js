@@ -25,22 +25,53 @@ function Filter({ products, onChange }) {
   const [arr, setArr] = useState([]);
 
   useEffect(() => {
-    // Сбрасываем значения фильтров при изменении категории
-    setBrand([]);
-    setCovers([]);
-    setColours([]);
-    setMaterials([]);
-    setAvailabilities([]);
-    setCountries([]);
-    setTypes([]);
-    setValueBrand([]);
-    setValueCovers([]);
-    setValueMaterials([]);
-    setValueColours([]);
-    setValueAvailabilities([]);
-    setValueCountries([]);
-    setValueTypes([]);
-  }, [products]); // Зависимость от products
+    try {
+      if (products.length > 0) {
+        setBrand([]);
+        setCovers([]);
+        setColours([]);
+        setMaterials([]);
+        setAvailabilities([]);
+        setCountries([]);
+        setTypes([]);
+        setValueBrand([]);
+        setValueCovers([]);
+        setValueMaterials([]);
+        setValueColours([]);
+        setValueAvailabilities([]);
+        setValueCountries([]);
+        setValueTypes([]);
+
+        setMinPrice(products[0].price);
+        products.forEach((element) => {
+          if (element.brand !== null) {
+            setBrand((prev) => [...prev, element.brand.name]);
+          }
+          if (element.covers !== null) {
+            setCovers((prev) => [...prev, element.covers.name]);
+          }
+          if (element.colours !== null) {
+            setColours((prev) => [...prev, element.colours.name]);
+          }
+          if (element.materials !== null) {
+            setMaterials((prev) => [...prev, element.materials.name]);
+          }
+          if (element.availabilities !== null) {
+            setAvailabilities((prev) => [...prev, element.availabilities.name]);
+          }
+          if (element.countries !== null) {
+            setCountries((prev) => [...prev, element.countries.name]);
+          }
+          if (element.types !== null) {
+            setTypes((prev) => [...prev, element.types.name]);
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка при обновлении фильтров:", error);
+      // Можно выполнить дополнительные действия, например, обновить состояние компонента или вывести сообщение об ошибке
+    }
+  }, [products]);
 
   /// Изменение Бренда
   const handleCangeBrand = (e) => {
@@ -77,31 +108,36 @@ function Filter({ products, onChange }) {
   };
 
   useEffect(() => {
-    if (products.length > 0) {
-      setMinPrice(products[0].price);
-      products.forEach((element) => {
-        if (element.brand !== null) {
-          setBrand((prev) => [...prev, element.brand.name]);
-        }
-        if (element.covers !== null) {
-          setCovers((prev) => [...prev, element.covers.name]);
-        }
-        if (element.colours !== null) {
-          setColours((prev) => [...prev, element.colours.name]);
-        }
-        if (element.materials !== null) {
-          setMaterials((prev) => [...prev, element.materials.name]);
-        }
-        if (element.availabilities !== null) {
-          setAvailabilities((prev) => [...prev, element.availabilities.name]);
-        }
-        if (element.countries !== null) {
-          setCountries((prev) => [...prev, element.countries.name]);
-        }
-        if (element.types !== null) {
-          setTypes((prev) => [...prev, element.types.name]);
-        }
-      });
+    try {
+      if (products.length > 0) {
+        setMinPrice(products[0].price);
+        products.forEach((element) => {
+          if (element.brand !== null) {
+            setBrand((prev) => [...prev, element.brand.name]);
+          }
+          if (element.covers !== null) {
+            setCovers((prev) => [...prev, element.covers.name]);
+          }
+          if (element.colours !== null) {
+            setColours((prev) => [...prev, element.colours.name]);
+          }
+          if (element.materials !== null) {
+            setMaterials((prev) => [...prev, element.materials.name]);
+          }
+          if (element.availabilities !== null) {
+            setAvailabilities((prev) => [...prev, element.availabilities.name]);
+          }
+          if (element.countries !== null) {
+            setCountries((prev) => [...prev, element.countries.name]);
+          }
+          if (element.types !== null) {
+            setTypes((prev) => [...prev, element.types.name]);
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка при обновлении фильтров:", error);
+      // Можно выполнить дополнительные действия, например, обновить состояние компонента или вывести сообщение об ошибке
     }
   }, [products]);
 

@@ -170,7 +170,11 @@ function Header({ check }) {
       {catalog ? (
         <div ref={catalogRef} className="showCatalog_main">
           <div className="showCatalog_main_box">
-            <HeaderCatalog onClick={handleChange} />
+            {HeaderCatalog ? (
+              <HeaderCatalog onClick={handleChange} />
+            ) : (
+              <p>Каталог товаров недоступен</p>
+            )}
           </div>
         </div>
       ) : null}

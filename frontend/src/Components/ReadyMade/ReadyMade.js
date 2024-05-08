@@ -5,36 +5,47 @@ import { Link } from "react-router-dom";
 function ReadyMade(props) {
   const [local, setLocal] = useState([]);
   const [check, setCheck] = useState(false);
-  const [probel, setProbel] = useState('')
+  const [probel, setProbel] = useState("");
 
   const handleChange = (event) => {
     props.onChange(event); // callback-функция
   };
 
-  useEffect(()=>{
-    // console.log(props);
-    var n = props.price.toString();
-    return setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' '));
-  },[])
+  useEffect(() => {
+    try {
+      var n = props.price.toString();
+      setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+    } catch (error) {
+      console.error("Ошибка при обновлении цены:", error);
+    }
+  }, [props.price]);
 
   useEffect(() => {
     handleChange(local);
     if (check) {
-      localStorage.setItem("save", JSON.stringify([...local, props]));
-      setCheck(false);
+      try {
+        localStorage.setItem("save", JSON.stringify([...local, props]));
+        setCheck(false);
+      } catch (error) {
+        console.error("Ошибка при сохранении в localStorage:", error);
+      }
     }
   }, [local]);
 
   const save = () => {
-    if (localStorage.getItem("save") !== null) {
-      setLocal(JSON.parse(localStorage.getItem("save")));
-      setCheck(true);
-    } else {
-      setLocal([]);
-      setCheck(true);
+    try {
+      if (localStorage.getItem("save") !== null) {
+        setLocal(JSON.parse(localStorage.getItem("save")));
+        setCheck(true);
+      } else {
+        setLocal([]);
+        setCheck(true);
+      }
+    } catch (error) {
+      console.error("Ошибка при чтении из localStorage:", error);
     }
   };
-  
+
   return (
     <div className="ready-made_kits_catalog">
       <Link
@@ -51,9 +62,12 @@ function ReadyMade(props) {
       </Link>
       <div className="ready-made_kits_price">
         <p>{probel} ₸ </p>
-        <div onClick={save} className="bascet">В корзину</div>
+        <div onClick={save} className="bascet">
+          В корзину
+        </div>
       </div>
     </div>
   );
 }
+
 export default ReadyMade;

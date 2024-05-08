@@ -15,29 +15,40 @@ function CategoryType() {
   const [newProducts, setNewProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Фильтрация продуктов при изменении categoryId и categoryType
-    setProducts(
-      all_product.filter(
-        (e) => e.brand.name === categoryId || e.category.name === categoryId
-      )
-    );
+    try {
+      // Фильтрация продуктов при изменении categoryId и categoryType
+      setProducts(
+        all_product.filter(
+          (e) => e.brand.name === categoryId || e.category.name === categoryId
+        )
+      );
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   }, [all_product, categoryId, categoryType]);
 
   useEffect(() => {
-    // Фильтрация продуктов по типу
-    setProductType(
-      products.filter((e) => {
-        // Проверка, содержит ли имя продукта ключевое слово
-        const nameContainsKeyword =
-          e.name.toLowerCase().includes(categoryType.toLowerCase()) ||
-          e.types?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
-          e.covers?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
-          e.materials?.name.toLowerCase().includes(categoryType.toLowerCase());
-        return nameContainsKeyword;
-      })
-    );
+    try {
+      // Фильтрация продуктов по типу
+      setProductType(
+        products.filter((e) => {
+          // Проверка, содержит ли имя продукта ключевое слово
+          const nameContainsKeyword =
+            e.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+            e.types?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+            e.covers?.name.toLowerCase().includes(categoryType.toLowerCase()) ||
+            e.materials?.name.toLowerCase().includes(categoryType.toLowerCase());
+          return nameContainsKeyword;
+        })
+      );
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   }, [products, categoryType]);
 
   useEffect(() => {
@@ -64,6 +75,8 @@ function CategoryType() {
         <Header />
       </div>
     );
+  } else if (error) {
+    return <div>Error: {error}</div>;
   } else {
     const filterProducts = (value) => {
       setCurrentPage(1);

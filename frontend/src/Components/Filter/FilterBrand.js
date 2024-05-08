@@ -23,21 +23,25 @@ function FilterBrand({ products, onChange }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    // Сбрасываем значения фильтров при изменении категории
-    setBrand([]);
-    setCovers([]);
-    setColours([]);
-    setMaterials([]);
-    setAvailabilities([]);
-    setCountries([]);
-    setTypes([]);
-    setValueBrand([]);
-    setValueCovers([]);
-    setValueMaterials([]);
-    setValueColours([]);
-    setValueAvailabilities([]);
-    setValueCountries([]);
-    setValueTypes([]);
+    try {
+      // Сбрасываем значения фильтров при изменении категории
+      setBrand([]);
+      setCovers([]);
+      setColours([]);
+      setMaterials([]);
+      setAvailabilities([]);
+      setCountries([]);
+      setTypes([]);
+      setValueBrand([]);
+      setValueCovers([]);
+      setValueMaterials([]);
+      setValueColours([]);
+      setValueAvailabilities([]);
+      setValueCountries([]);
+      setValueTypes([]);
+    } catch (error) {
+      console.error("Ошибка при сбросе фильтров:", error);
+    }
   }, [products]); // Зависимость от products
 
   /// Изменение Бренда
@@ -75,31 +79,35 @@ function FilterBrand({ products, onChange }) {
   };
 
   useEffect(() => {
-    if (products.length > 0) {
-      setMinPrice(products[0].price);
-      products.forEach((element) => {
-        if (element.category !== null) {
-          setBrand((prev) => [...prev, element.category.name]);
-        }
-        if (element.covers !== null) {
-          setCovers((prev) => [...prev, element.covers.name]);
-        }
-        if (element.colours !== null) {
-          setColours((prev) => [...prev, element.colours.name]);
-        }
-        if (element.materials !== null) {
-          setMaterials((prev) => [...prev, element.materials.name]);
-        }
-        if (element.availabilities !== null) {
-          setAvailabilities((prev) => [...prev, element.availabilities.name]);
-        }
-        if (element.countries !== null) {
-          setCountries((prev) => [...prev, element.countries.name]);
-        }
-        if (element.types !== null) {
-          setTypes((prev) => [...prev, element.types.name]);
-        }
-      });
+    try {
+      if (products.length > 0) {
+        setMinPrice(products[0].price);
+        products.forEach((element) => {
+          if (element.category !== null) {
+            setBrand((prev) => [...prev, element.category.name]);
+          }
+          if (element.covers !== null) {
+            setCovers((prev) => [...prev, element.covers.name]);
+          }
+          if (element.colours !== null) {
+            setColours((prev) => [...prev, element.colours.name]);
+          }
+          if (element.materials !== null) {
+            setMaterials((prev) => [...prev, element.materials.name]);
+          }
+          if (element.availabilities !== null) {
+            setAvailabilities((prev) => [...prev, element.availabilities.name]);
+          }
+          if (element.countries !== null) {
+            setCountries((prev) => [...prev, element.countries.name]);
+          }
+          if (element.types !== null) {
+            setTypes((prev) => [...prev, element.types.name]);
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка при обновлении фильтров:", error);
     }
   }, [products]);
 

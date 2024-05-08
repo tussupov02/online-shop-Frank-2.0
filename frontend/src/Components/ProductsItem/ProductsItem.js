@@ -2,38 +2,59 @@ import React, { useEffect, useState } from "react";
 import "./ProductsItem.css";
 import { SlBasket } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { FaCheck } from "react-icons/fa";
 
 function ProductsItem(props) {
   const [local, setLocal] = useState([]);
   const [check, setCheck] = useState(false);
   const [probel, setProbel] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+
   const handleChange = (event) => {
     props.onChange(event); // callback-функция
   };
 
   useEffect(() => {
-    // console.log(props);
-    var n = props.price.toString();
-    return setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
-  }, []);
+    try {
+      var n = props.price.toString();
+      setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+    } catch (error) {
+      console.error("Ошибка при обновлении цены:", error);
+    }
+  }, [props.price]);
 
   useEffect(() => {
     handleChange(local);
     if (check) {
-      localStorage.setItem("save", JSON.stringify([...local, props]));
-      setCheck(false);
+      try {
+        localStorage.setItem("save", JSON.stringify([...local, props]));
+        setCheck(false);
+      } catch (error) {
+        console.error("Ошибка при сохранении в localStorage:", error);
+      }
     }
   }, [local]);
 
   const save = () => {
-    if (localStorage.getItem("save") !== null) {
-      setLocal(JSON.parse(localStorage.getItem("save")));
-      setCheck(true);
-    } else {
-      setLocal([]);
-      setCheck(true);
+    try {
+      if (localStorage.getItem("save") !== null) {
+        setLocal(JSON.parse(localStorage.getItem("save")));
+        setCheck(true);
+      } else {
+        setLocal([]);
+        setCheck(true);
+      }
+      setModalVisible(true);
+      // Закрываем модальное окно через 1 секунду
+      setTimeout(() => {
+        setModalVisible(false);
+        // Сбрасываем значения инпутов
+      }, 700);
+    } catch (error) {
+      console.error("Ошибка при чтении из localStorage:", error);
     }
   };
+
   return (
     <div className="products_items">
       <Link className="products_item_box" to={`/product/${props.id}`}>
@@ -54,6 +75,15 @@ function ProductsItem(props) {
           <SlBasket style={{ fontSize: "24px", color: "#112038" }} />
         </div>
       </div>
+      {modalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>
+              Добавленно! <FaCheck />
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -17,12 +17,17 @@ function Category() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    // Установка начальных данных при загрузке всех продуктов
-    setProducts(
-      all_product.filter(
-        (e) => e.brand.name === categoryId || e.category.name === categoryId
-      )
-    );
+    try {
+      // Установка начальных данных при загрузке всех продуктов
+      setProducts(
+        all_product.filter(
+          (e) => e.brand.name === categoryId || e.category.name === categoryId
+        )
+      );
+    } catch (error) {
+      console.error("Ошибка при загрузке данных:", error);
+      setProducts([]);
+    }
   }, [all_product, categoryId]);
 
   useEffect(() => {

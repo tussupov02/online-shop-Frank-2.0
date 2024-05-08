@@ -82,6 +82,7 @@
     background-color: rgba(0, 0, 0, 0.5); /* Затемнение заднего фона */
     justify-content: center;
     align-items: center;
+    z-index: 9999999999;
   }
   
   .modal-content {
@@ -89,21 +90,13 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+}
+.modal-content svg{
+      fill: green;
+
   }
   
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
 
   
 

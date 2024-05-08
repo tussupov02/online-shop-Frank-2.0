@@ -10,9 +10,13 @@ function Basket() {
 
   useEffect(() => {
     document.body.style.overflow = "";
-    const savedItems = JSON.parse(localStorage.getItem("save")) || [];
-    setLocal(savedItems);
-    updateTotalPrice(savedItems);
+    try {
+      const savedItems = JSON.parse(localStorage.getItem("save")) || [];
+      setLocal(savedItems);
+      updateTotalPrice(savedItems);
+    } catch (error) {
+      console.error("Ошибка при загрузке элементов из localStorage:", error);
+    }
   }, []);
 
   const updateTotalPrice = (items) => {
@@ -21,29 +25,41 @@ function Basket() {
   };
 
   useEffect(() => {
-    var n = sum.toString();
-    return setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+    try {
+      var n = sum.toString();
+      setProbel(n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + " "));
+    } catch (error) {
+      console.error("Ошибка при обновлении общей суммы:", error);
+    }
   }, [sum]);
 
   const deleteItem = (id) => {
-    const updatedItems = local.filter((item) => item.id !== id);
-    localStorage.setItem("save", JSON.stringify(updatedItems));
-    setLocal(updatedItems);
-    updateTotalPrice(updatedItems);
+    try {
+      const updatedItems = local.filter((item) => item.id !== id);
+      localStorage.setItem("save", JSON.stringify(updatedItems));
+      setLocal(updatedItems);
+      updateTotalPrice(updatedItems);
+    } catch (error) {
+      console.error("Ошибка при удалении элемента из корзины:", error);
+    }
   };
 
   const getUniqueItems = () => {
     const uniqueItems = [];
-    local.forEach((item) => {
-      const existingItemIndex = uniqueItems.findIndex(
-        (uniqueItem) => uniqueItem.id === item.id
-      );
-      if (existingItemIndex !== -1) {
-        uniqueItems[existingItemIndex].quantity += 1;
-      } else {
-        uniqueItems.push({ ...item, quantity: 1 });
-      }
-    });
+    try {
+      local.forEach((item) => {
+        const existingItemIndex = uniqueItems.findIndex(
+          (uniqueItem) => uniqueItem.id === item.id
+        );
+        if (existingItemIndex !== -1) {
+          uniqueItems[existingItemIndex].quantity += 1;
+        } else {
+          uniqueItems.push({ ...item, quantity: 1 });
+        }
+      });
+    } catch (error) {
+      console.error("Ошибка при получении уникальных элементов:", error);
+    }
     return uniqueItems;
   };
 

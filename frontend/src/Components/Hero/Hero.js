@@ -13,6 +13,7 @@ import Brand from "../Brand/Brand";
 import { FaWhatsapp } from "react-icons/fa6";
 import TelegramBot from "../TelegramBot/TelegramBot";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaCheck } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -23,8 +24,10 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { ShopContext } from "../../Context/ShopContext";
 
 function Hero() {
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(false);
   const { hitsProducts } = useContext(ShopContext);
+  const [modalVisible, setModalVisible] = useState(false);
+
   const catalogAll = [
     {
       id: 123564,
@@ -109,13 +112,22 @@ function Hero() {
       brandImg: "./img/abber.jpg",
     },
   ];
+
   const handleChange = (value) => {
-    setCheck(value)
-  }
+    setCheck(value);
+    if(check){
+      setModalVisible(true);
+      // Закрываем модальное окно через 1 секунду
+      setTimeout(() => {
+        setModalVisible(false);
+        // Сбрасываем значения инпутов
+      }, 300);
+    }
+  };
 
   return (
     <div>
-      <Header check={check}/>
+      <Header check={check} />
       <div className="video">
         <div className="video_plus">
           <video
@@ -166,7 +178,11 @@ function Hero() {
             {brandAll.map((item, i) => {
               return (
                 <SwiperSlide key={i}>
-                  <Brand imgBrand={item.brandImg} id={item.id} title={item.name}/>
+                  <Brand
+                    imgBrand={item.brandImg}
+                    id={item.id}
+                    title={item.name}
+                  />
                 </SwiperSlide>
               );
             })}
@@ -203,7 +219,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="ready-made_kits">
+      {hitsProducts.length>0&&      <div className="ready-made_kits">
         <h3>ХИТЫ ПРОДАЖ</h3>
         <div className="ready-made_all">
           <Swiper
@@ -222,25 +238,24 @@ function Hero() {
               820: {
                 slidesPerView: 3.5,
               },
-              700:{
-                slidesPerView: 3
+              700: {
+                slidesPerView: 3,
               },
-              550:{
-                slidesPerView:2.5
+              550: {
+                slidesPerView: 2.5,
               },
-              500:{
-                slidesPerView:2
+              500: {
+                slidesPerView: 2,
               },
-              380:{
-                slidesPerView:1.8
+              380: {
+                slidesPerView: 1.8,
               },
-              360:{
-                slidesPerView:1.5
+              360: {
+                slidesPerView: 1.5,
               },
-              340:{
-                slidesPerView:1.5
-              }
-
+              340: {
+                slidesPerView: 1.5,
+              },
             }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="ready-made_kits_box"
@@ -260,7 +275,8 @@ function Hero() {
             })}
           </Swiper>
         </div>
-      </div>
+      </div>}
+
       <div className="catalog">
         <h3>Каталог товаров</h3>
         <div className="catalog_all">
@@ -280,25 +296,24 @@ function Hero() {
               820: {
                 slidesPerView: 3.5,
               },
-              700:{
-                slidesPerView: 3
+              700: {
+                slidesPerView: 3,
               },
-              550:{
-                slidesPerView:2.5
+              550: {
+                slidesPerView: 2.5,
               },
-              500:{
-                slidesPerView:2
+              500: {
+                slidesPerView: 2,
               },
-              380:{
-                slidesPerView:1.8
+              380: {
+                slidesPerView: 1.8,
               },
-              360:{
-                slidesPerView:1.5
+              360: {
+                slidesPerView: 1.5,
               },
-              340:{
-                slidesPerView:1.5
-              }
-
+              340: {
+                slidesPerView: 1.5,
+              },
             }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="catalog_box"
@@ -357,6 +372,15 @@ function Hero() {
         </YMaps>
       </div>
       <TelegramBot />
+      {modalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>
+              Добавленно! <FaCheck />
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

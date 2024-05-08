@@ -16,8 +16,9 @@ function CategoryBrand() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    // Фильтрация продуктов при изменении categoryId и categoryType
-    setProducts(
+    try {
+      // Фильтрация продуктов при изменении categoryId и categoryType
+      setProducts(
         all_product.filter((e) => {
           // Проверка, содержит ли имя продукта ключевое слово
           const nameContainsKeyword =
@@ -25,6 +26,10 @@ function CategoryBrand() {
           return nameContainsKeyword;
         })
       );
+    } catch (error) {
+      console.error("Ошибка при загрузке данных:", error);
+      setProducts([]);
+    }
   }, [all_product, categoryBrand]);
 
 
